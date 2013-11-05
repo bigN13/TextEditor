@@ -1,0 +1,15 @@
+\\Dine-pc\έγγραφα\Git\Orchestra\output\debug\NET45\Orchestra.Library\Orchestra.Library.XML
+\\Dine-pc\έγγραφα\Git\Orchestra\src\Orchestra.Library.NET45\obj\Debug\Orchestra.Library.NET45.csprojResolveAssemblyReference.cache
+\\Dine-pc\έγγραφα\Git\Orchestra\src\Orchestra.Library.NET45\obj\Debug\Orchestra.Library.g.resources
+\\Dine-pc\έγγραφα\Git\Orchestra\src\Orchestra.Library.NET45\obj\Debug\Orchestra.Library.dll
+\\Dine-pc\έγγραφα\Git\Orchestra\src\Orchestra.Library.NET45\obj\Debug\Orchestra.Library.pdb
+F:\Έγγραφα\Git\Orchestra\output\debug\NET45\Orchestra.Library\Orchestra.Library.XML
+F:\Έγγραφα\Git\Orchestra\output\debug\NET45\Orchestra.Library\Orchestra.Library.dll
+F:\Έγγραφα\Git\Orchestra\output\debug\NET45\Orchestra.Library\Orchestra.Library.pdb
+F:\Έγγραφα\Git\Orchestra\src\Orchestra.Library.NET45\obj\Debug\Orchestra.Library.NET45.csprojResolveAssemblyReference.cache
+F:\Έγγραφα\Git\Orchestra\src\Orchestra.Library.NET45\obj\Debug\NestedDockingManager.baml
+F:\Έγγραφα\Git\Orchestra\src\Orchestra.Library.NET45\obj\Debug\NestedDockingManager.g.cs
+F:\Έγγραφα\Git\Orchestra\src\Orchestra.Library.NET45\obj\Debug\Orchestra.Library_MarkupCompile.cache
+F:\Έγγραφα\Git\Orchestra\src\Orchestra.Library.NET45\obj\Debug\Orchestra.Library.g.resources
+F:\Έγγραφα\Git\Orchestra\src\Orchestra.Library.NET45\obj\Debug\Orchestra.Library.dll
+F:\Έγγραφα\Git\Orchestra\src\Orchestra.Library.NET45\obj\Debug\Orchestra.Library.pdb

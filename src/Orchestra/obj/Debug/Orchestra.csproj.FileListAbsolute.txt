@@ -1,0 +1,76 @@
+\\Dine-pc\έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra.csprojResolveAssemblyReference.cache
+\\Dine-pc\έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\App.g.cs
+\\Dine-pc\έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra_Content.g.cs
+\\Dine-pc\έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra_MarkupCompile.cache
+\\Dine-pc\έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra.Properties.Resources.resources
+\\Dine-pc\έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra.Resources.Resources.resources
+\\Dine-pc\έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra.Resources.Resources.de-DE.resources
+\\Dine-pc\έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra.csproj.GenerateResource.Cache
+F:\Έγγραφα\Git\Orchestra\output\Debug\Client\Resources\Images\SplashScreen.png
+F:\Έγγραφα\Git\Orchestra\output\Debug\Client\Orchestra.exe.config
+F:\Έγγραφα\Git\Orchestra\output\Debug\Client\Orchestra.XML
+F:\Έγγραφα\Git\Orchestra\output\Debug\Client\Orchestra.exe
+F:\Έγγραφα\Git\Orchestra\output\Debug\Client\Orchestra.pdb
+F:\Έγγραφα\Git\Orchestra\output\Debug\Client\de-DE\Orchestra.resources.dll
+F:\Έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra.csprojResolveAssemblyReference.cache
+F:\Έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\App.g.cs
+F:\Έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra_Content.g.cs
+F:\Έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra_MarkupCompile.cache
+F:\Έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra.Properties.Resources.resources
+F:\Έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra.Resources.Resources.resources
+F:\Έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra.Resources.Resources.de-DE.resources
+F:\Έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra.csproj.GenerateResource.Cache
+F:\Έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\de-DE\Orchestra.resources.dll
+F:\Έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra.exe
+F:\Έγγραφα\Git\Orchestra\src\Orchestra\obj\Debug\Orchestra.pdb
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\output\Debug\Client\Resources\Images\SplashScreen.png
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\output\Debug\Client\Orchestra.exe.config
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\output\Debug\Client\Orchestra.XML
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\output\Debug\Client\Orchestra.exe
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\output\Debug\Client\Orchestra.pdb
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\output\Debug\Client\de-DE\Orchestra.resources.dll
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\Orchestra\obj\Debug\Orchestra.csprojResolveAssemblyReference.cache
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\Orchestra\obj\Debug\App.g.cs
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\Orchestra\obj\Debug\Orchestra_Content.g.cs
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\Orchestra\obj\Debug\Orchestra_MarkupCompile.cache
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\Orchestra\obj\Debug\Orchestra.Properties.Resources.resources
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\Orchestra\obj\Debug\Orchestra.Resources.Resources.resources
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\Orchestra\obj\Debug\Orchestra.Resources.Resources.de-DE.resources
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\Orchestra\obj\Debug\Orchestra.csproj.GenerateResource.Cache
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\Orchestra\obj\Debug\de-DE\Orchestra.resources.dll
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\Orchestra\obj\Debug\Orchestra.exe
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\Orchestra\obj\Debug\Orchestra.pdb
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\output\Debug\Client\Resources\Images\SplashScreen.png
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\output\Debug\Client\Orchestra.exe.config
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\output\Debug\Client\Orchestra.XML
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\output\Debug\Client\Orchestra.exe
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\output\Debug\Client\Orchestra.pdb
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\output\Debug\Client\de-DE\Orchestra.resources.dll
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\src\Orchestra\obj\Debug\Orchestra.csprojResolveAssemblyReference.cache
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\src\Orchestra\obj\Debug\App.g.cs
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\src\Orchestra\obj\Debug\Orchestra_Content.g.cs
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\src\Orchestra\obj\Debug\Orchestra_MarkupCompile.cache
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\src\Orchestra\obj\Debug\Orchestra.Properties.Resources.resources
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\src\Orchestra\obj\Debug\Orchestra.Resources.Resources.resources
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\src\Orchestra\obj\Debug\Orchestra.Resources.Resources.de-DE.resources
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\src\Orchestra\obj\Debug\Orchestra.csproj.GenerateResource.Cache
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\src\Orchestra\obj\Debug\de-DE\Orchestra.resources.dll
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\src\Orchestra\obj\Debug\Orchestra.exe
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\src\Orchestra\obj\Debug\Orchestra.pdb
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\output\Debug\Client\Resources\Images\SplashScreen.png
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\output\Debug\Client\Orchestra.exe.config
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\output\Debug\Client\Orchestra.XML
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\output\Debug\Client\Orchestra.exe
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\output\Debug\Client\Orchestra.pdb
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\output\Debug\Client\de-DE\Orchestra.resources.dll
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\Orchestra.csprojResolveAssemblyReference.cache
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\App.g.cs
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\Orchestra_Content.g.cs
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\Orchestra_MarkupCompile.cache
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\Orchestra.Properties.Resources.resources
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\Orchestra.Resources.Resources.resources
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\Orchestra.Resources.Resources.de-DE.resources
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\Orchestra.csproj.GenerateResource.Cache
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\de-DE\Orchestra.resources.dll
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\Orchestra.exe
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\Orchestra.pdb

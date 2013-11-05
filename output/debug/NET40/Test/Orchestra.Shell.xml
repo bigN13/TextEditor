@@ -1,0 +1,628 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orchestra.Shell</name>
+    </assembly>
+    <members>
+        <member name="T:Orchestra.CatelCustomization.OrchestraBootstrapperTaskFactory">
+            <summary>
+            A customized orchestra bootstrapper task factory.
+            </summary>
+        </member>
+        <member name="M:Orchestra.CatelCustomization.OrchestraBootstrapperTaskFactory.CreateConfigureServiceLocatorContainerTask(System.Action,System.Boolean)">
+            <summary>
+            Creates the configure service locator container task.
+            </summary>
+            <param name="action">The action to execute.</param>
+            <param name="dispatch">if set to <c>true</c>, this action is dispatched to the UI thread.</param>
+            <returns>The task.</returns>
+        </member>
+        <member name="M:Orchestra.CatelCustomization.OrchestraBootstrapperTaskFactory.CreateConfigureServiceLocatorTask(System.Action,System.Boolean)">
+            <summary>
+            Creates the configure service locator task.
+            </summary>
+            <param name="action">The action to execute.</param>
+            <param name="dispatch">if set to <c>true</c>, this action is dispatched to the UI thread.</param>
+            <returns>The task.</returns>
+        </member>
+        <member name="T:Orchestra.Models.ModuleInfo">
+            <summary>
+            Module info container.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Models.ModuleInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Models.ModuleInfo"/> class.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.ModuleInfo.LicenseUrl">
+            <summary>
+            Gets or sets the license URL.
+            </summary>
+            <value>The license URL.</value>
+        </member>
+        <member name="T:Orchestra.Models.Configuration">
+            <summary>
+            The Configuration class contains the configurable items for the Orchestra Shell.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Models.Configuration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Models.Configuration"/> class.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.Configuration.HelpTabText">
+            <summary>
+            Gets or sets the name of the 'about' tab.
+            </summary>
+            <value>
+            The name of the 'about' tab.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.Configuration.HelpGroupText">
+            <summary>
+            Gets or sets the text for the 'About' group in the ribbon.
+            </summary>
+            <value>
+            The about group text.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.Configuration.HelpButtonText">
+            <summary>
+            Gets or sets the text for the help button in the Ribbon.
+            </summary>
+            <value>
+            The help button text.
+            </value>
+        </member>
+        <member name="T:ModuleInitializer">
+            <summary>
+            Used by the ModuleInit. All code inside the Initialize method is ran as soon as the assembly is loaded.
+            </summary>
+        </member>
+        <member name="M:ModuleInitializer.Initialize">
+            <summary>
+            Initializes the module.
+            </summary>
+        </member>
+        <member name="T:Orchestra.OrchestraBootstrapper">
+            <summary>
+            The bootstrapper that will create and run the shell.
+            </summary>
+        </member>
+        <member name="F:Orchestra.OrchestraBootstrapper.Log">
+            <summary>
+            The log.
+            </summary>
+        </member>
+        <member name="M:Orchestra.OrchestraBootstrapper.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.OrchestraBootstrapper"/> class.
+            </summary>
+            <param name="createAboutRibbon">If set to <c>true</c>, a ribbon item for the about box will be created.</param>
+        </member>
+        <member name="M:Orchestra.OrchestraBootstrapper.InitializeBootTasks(System.Collections.Generic.IList{Catel.MVVM.Tasks.ITask})">
+            <summary>
+            Initialize boot tasks.
+            </summary>
+            <param name="bootTasks">The additional boot tasks.</param>
+            <remarks>Override this method to add additional tasks that will be executed before shell initialization.</remarks>
+        </member>
+        <member name="M:Orchestra.OrchestraBootstrapper.CreateModuleCatalog">
+            <summary>
+            Creates the <see cref="T:Microsoft.Practices.Prism.Modularity.IModuleCatalog"/> used by Prism.
+            </summary>
+        </member>
+        <member name="M:Orchestra.OrchestraBootstrapper.ConfigureContainer">
+            <summary>
+            Configures the IoC container.
+            </summary>
+        </member>
+        <member name="M:Orchestra.OrchestraBootstrapper.InitializeModules">
+            <summary>
+            Initializes the modules. May be overwritten in a derived class to use a custom Modules Catalog.
+            </summary>
+        </member>
+        <member name="M:Orchestra.OrchestraBootstrapper.OnAssemblyResolve(System.Object,System.ResolveEventArgs)">
+            <summary>
+            Called when the resolving of assemblies failed. In that case, this method will try to load the 
+            assemblies from the modules directory.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="args">The <see cref="T:System.ResolveEventArgs"/> instance containing the event data.</param>
+            <returns>The assembly or <c>null</c> if the assembly could not be resolved.</returns>
+        </member>
+        <member name="P:Orchestra.OrchestraBootstrapper.ModulesDirectory">
+            <summary>
+            The modules directory.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Services.IConfigurationService">
+            <summary>
+            The configuration service is responisble for managing all configurable items in the Orchestra shell.
+            The application using the Orchestra Shell, can configure it's appearence by using this service.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Services.IConfigurationService.Configuration">
+            <summary>
+            Gets the configuration object, holding all configarable items.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="T:Orchestra.Services.ConfigurationService">
+            <summary>
+            The configuration service is responisble for managing all configurable items in the Orchestra shell.
+            The application using the Orchestra Shell, can configure it's appearence by using this service.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Services.ConfigurationService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Services.ConfigurationService"/> class.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Services.ConfigurationService.Configuration">
+            <summary>
+            Gets the configuration object, holding all configarable items.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="T:Orchestra.Services.IMissingAssemblyResolverService">
+            <summary>
+            Interface to resolve missing assemblies by Orchestra.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Services.IMissingAssemblyResolverService.ResolveAssembly(System.String)">
+            <summary>
+            Resolves the assembly and referenced assemblies.
+            </summary>
+            <param name="assemblyFileName">Name of the assembly file.</param>
+            <returns>The resolved assembly or <c>null</c> if the assembly cannot be resolved.</returns>
+            <exception cref="T:System.ArgumentException">The <paramref name="assemblyFileName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="T:Orchestra.Services.MissingAssemblyResolverService">
+            <summary>
+            Service to resolve missing assemblies.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Services.MissingAssemblyResolverService.ResolveAssembly(System.String)">
+            <summary>
+            Resolves the assembly and referenced assemblies.
+            </summary>
+            <param name="assemblyFileName">Name of the assembly file.</param>
+            <returns>The resolved assembly or <c>null</c> if the assembly cannot be resolved.</returns>
+            <exception cref="T:System.ArgumentException">The <paramref name="assemblyFileName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="T:Orchestra.Services.OrchestraService">
+            <summary>
+            Orchestra service implementation.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Services.OrchestraService.#ctor(Orchestra.Views.MainWindow)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Services.OrchestraService"/> class.
+            </summary>
+            <param name="shell">The shell.</param>
+        </member>
+        <member name="M:Orchestra.Services.OrchestraService.ShowDocumentIfHidden``1(System.Object)">
+            <summary>
+            Shows the helper window.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="tag">The tag.</param>
+        </member>
+        <member name="M:Orchestra.Services.OrchestraService.ShowDocument``1(System.Object)">
+            <summary>
+            Shows the document in the main shell.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="tag">The tag.</param>
+        </member>
+        <member name="M:Orchestra.Services.OrchestraService.ShowDocument``1(``0,System.Object,System.Nullable{Orchestra.Models.DockLocation})">
+            <summary>
+            Opens a new document.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="viewModel">The view model.</param>
+            <param name="tag">The tag.</param>
+            <param name="dockLocation">The dock location.</param>
+        </member>
+        <member name="M:Orchestra.Services.OrchestraService.ShowContextSensitiveDocument``1(System.Object)">
+            <summary>
+            Shows the document in the main shell.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="tag">The tag.</param>
+        </member>
+        <member name="M:Orchestra.Services.OrchestraService.ShowContextSensitiveDocument``1(``0,System.Object,System.Nullable{Orchestra.Models.DockLocation})">
+            <summary>
+            Shows the document in the main shell.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="viewModel">The view model to show which will automatically be resolved to a view.</param>
+            <param name="tag">The tag.</param>
+            <param name="dockLocation">The dock location.</param>        
+            <exception cref="T:System.ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.Services.OrchestraService.ShowDocumentInNestedDockView(Catel.MVVM.IViewModel,Orchestra.Views.NestedDockingManager,Orchestra.Models.DockLocation,System.Object)">
+            <summary>
+            Shows the document in nested dock view.
+            </summary>
+            <param name="viewModel">The view model.</param>
+            <param name="dockingManager">The docking manager.</param>
+            <param name="tag">The tag.</param>
+            <param name="dockLocation">The dock location.</param>
+        </member>
+        <member name="M:Orchestra.Services.OrchestraService.CloseDocument(Catel.MVVM.IViewModel,System.Object)">
+            <summary>
+            Closes the document in the main shell with the specified view model.
+            </summary>
+            <param name="viewModel">The view model.</param>
+            <param name="tag">The tag.</param>
+        </member>
+        <member name="P:Orchestra.Services.OrchestraService.ShowDebuggingWindow">
+            <summary>
+            Gets or sets a value indicating whether to show the debug window.
+            </summary>
+            <value><c>true</c> if the debug window should be shown; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Orchestra.Services.RibbonService">
+            <summary>
+            The ribbon service.
+            </summary>
+        </member>
+        <member name="F:Orchestra.Services.RibbonService.Log">
+            <summary>
+            The log.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Services.RibbonService.#ctor(Xceed.Wpf.AvalonDock.Layout.LayoutDocumentPane,Catel.MVVM.Services.IDispatcherService,Fluent.Ribbon)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Services.RibbonService"/> class.
+            </summary>
+            <param name="layoutDocumentPane">The layout document pane.</param>
+            <param name="dispatcherService">The dispatcher service.</param>
+            <param name="ribbon">The ribbon.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="layoutDocumentPane"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="dispatcherService"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="ribbon"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.Services.RibbonService.OnRibbonLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when the ribbon is loaded.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <remarks>
+            This is a workaround. If this code is not used, you will get issues with showing the second contextual tab group.
+            </remarks>
+        </member>
+        <member name="M:Orchestra.Services.RibbonService.RegisterRibbonItem(Orchestra.Models.IRibbonControl)">
+            <summary>
+            Registers the specified ribbon item to the main ribbon.
+            </summary>
+            <param name="ribbonControl">The ribbon item.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="ribbonControl"/> is <c>null</c>.</exception>
+            <exception cref="T:System.NotSupportedException">The <c>Command</c> property of the <paramref name="ribbonControl"/> is <c>null</c>.</exception>
+            <exception cref="T:System.NotSupportedException">The <c>Command</c> property of the <paramref name="ribbonControl"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.Services.RibbonService.RegisterContextualRibbonItem``1(Orchestra.Models.IRibbonControl,System.String)">
+            <summary>
+            Registers the ribbon item bound to a specific view type.
+            </summary>
+            <typeparam name="TView">The type of the T view.</typeparam>
+            <param name="ribbonControl">The ribbon item.</param>
+            <param name="contextualTabGroupName">The contextual tab group name.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="ribbonControl"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="contextualTabGroupName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.Services.RibbonService.RegisterContextualRibbonItem(System.Type,Orchestra.Models.IRibbonControl,System.String)">
+            <summary>
+            Registers the ribbon item bound to a specific view type.
+            </summary>
+            <param name="viewType">Type of the view.</param>
+            <param name="ribbonControl">The ribbon item.</param>
+            <param name="contextualTabGroupName">The contextual tab group name.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="viewType"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="ribbonControl"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="contextualTabGroupName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.Services.RibbonService.AddRibbonItem(Orchestra.Models.IRibbonControl)">
+            <summary>
+            Adds a new ribbon item to the main ribbon.
+            </summary>
+            <param name="ribbonControl">The ribbon item.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="ribbonControl"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.Services.RibbonService.RemoveRibbonItem(Orchestra.Models.IRibbonControl)">
+            <summary>
+            Removes the specified ribbon item to the main ribbon.
+            <para/>
+            This method will ignore calls when the item is not available in the ribbon.
+            </summary>
+            <param name="ribbonControl">The ribbon item.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="ribbonControl"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Orchestra.Services.StatusBarService">
+            <summary>
+            Servie to control the status bar.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Services.StatusBarService.#ctor(Orchestra.Views.MainWindow)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Services.StatusBarService"/> class.
+            </summary>
+            <param name="shell">The shell.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="shell"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.Services.StatusBarService.UpdateStatus(System.String)">
+            <summary>
+            Updates the status.
+            </summary>
+            <param name="status">The status.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="status"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Orchestra.ViewModels.AboutViewModel">
+            <summary>
+            The about view model.
+            </summary>
+        </member>
+        <member name="M:Orchestra.ViewModels.AboutViewModel.#ctor(Catel.Modules.ModuleManager.IModuleInfoManager,Catel.MVVM.Services.IProcessService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.ViewModels.AboutViewModel"/> class.
+            </summary>
+        </member>
+        <member name="M:Orchestra.ViewModels.AboutViewModel.OnCloseExecute">
+            <summary>
+            Method to invoke when the Close command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.ViewModels.AboutViewModel.OnViewLicenseCanExecute(Orchestra.Models.ModuleInfo)">
+            <summary>
+            Method to check whether the ViewLicense command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.ViewModels.AboutViewModel.OnViewLicenseExecute(Orchestra.Models.ModuleInfo)">
+            <summary>
+            Method to invoke when the ViewLicense command is executed.
+            </summary>
+        </member>
+        <member name="P:Orchestra.ViewModels.AboutViewModel.Modules">
+            <summary>
+            Gets the modules of the application.
+            </summary>
+            <value>The modules.</value>
+        </member>
+        <member name="P:Orchestra.ViewModels.AboutViewModel.CloseCommand">
+            <summary>
+            Gets the Close command.
+            </summary>
+        </member>
+        <member name="P:Orchestra.ViewModels.AboutViewModel.ViewLicense">
+            <summary>
+            Gets the ViewLicense command.
+            </summary>
+        </member>
+        <member name="T:Orchestra.ViewModels.MainWindowViewModel">
+            <summary>
+            MainWindow view model.
+            </summary>
+        </member>
+        <member name="M:Orchestra.ViewModels.MainWindowViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.ViewModels.MainWindowViewModel"/> class.
+            </summary>
+        </member>
+        <member name="P:Orchestra.ViewModels.MainWindowViewModel.Title">
+            <summary>
+            Gets the title of the view model.
+            </summary>
+            <value>
+            The title.
+            </value>
+        </member>
+        <member name="T:Orchestra.ViewModels.SplashScreenViewModel">
+            <summary>
+            A splash screen view model.
+            </summary>
+        </member>
+        <member name="M:Orchestra.ViewModels.SplashScreenViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.ViewModels.SplashScreenViewModel"/> class.
+            </summary>
+            <remarks>Must have a public constructor in order to be serializable.</remarks>
+        </member>
+        <member name="T:Orchestra.Views.AboutView">
+            <summary>
+            Interaction logic for AboutView.xaml.
+            </summary>
+            <summary>
+            AboutView
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.AboutView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Views.AboutView"/> class.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.AboutView.#ctor(Orchestra.ViewModels.AboutViewModel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Views.AboutView"/> class.
+            </summary>
+            <param name="viewModel">The view model to inject.</param>
+            <remarks>
+            This constructor can be used to use view-model injection.
+            </remarks>
+        </member>
+        <member name="M:Orchestra.Views.AboutView.InitializeAboutWindow">
+            <summary>
+            Initializes the splash screen.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.AboutView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Orchestra.Views.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml.
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="F:Orchestra.Views.MainWindow.TraceOutputAnchorable">
+            <summary>
+            Name of the trace output anchorable.
+            </summary>
+        </member>
+        <member name="F:Orchestra.Views.MainWindow.Log">
+            <summary>
+            The log.
+            </summary>
+        </member>
+        <member name="F:Orchestra.Views.MainWindow.StatusBarProperty">
+            <summary>
+            The status bar property.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Views.MainWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.MainWindow.IsAnchorableVisible(System.String)">
+            <summary>
+            Determines whether the anchorable with the specified name is currently visible.
+            </summary>
+            <param name="name">
+            The name of the anchorable.
+            </param>
+            <returns>
+            <c>true</c> if the anchorable with the specified name is visible; otherwise, <c>false</c>.
+            </returns>
+            <exception cref="T:System.ArgumentException">
+            The <paramref name="name"/> is <c>null</c> or whitespace.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            The anchorable with the specified name cannot be found.
+            </exception>
+        </member>
+        <member name="M:Orchestra.Views.MainWindow.ShowAnchorable(System.String)">
+            <summary>
+            Shows the anchorable with the specified name.
+            </summary>
+            <param name="name">
+            The name of the anchorable.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            The <paramref name="name"/> is <c>null</c> or whitespace.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            The anchorable with the specified name cannot be found.
+            </exception>
+        </member>
+        <member name="M:Orchestra.Views.MainWindow.HideAnchorable(System.String)">
+            <summary>
+            Hides the anchorable with the specified name.
+            </summary>
+            <param name="name">
+            The name of the anchorable.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            The <paramref name="name"/> is <c>null</c> or whitespace.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            The anchorable with the specified name cannot be found.
+            </exception>
+        </member>
+        <member name="M:Orchestra.Views.MainWindow.FindAnchorable(System.String,System.Boolean)">
+            <summary>
+            Finds the anchorable with the specified name.
+            </summary>
+            <param name="name">
+            The name of the anchorable.
+            </param>
+            <param name="throwExceptionWhenNotFound">
+            If set to <c>true</c>, this method will throw an <see cref="T:System.InvalidOperationException"/> when the anchorable cannot be found.
+            </param>
+            <returns>
+            The <see cref="T:Xceed.Wpf.AvalonDock.Layout.LayoutAnchorable"/> or <c>null</c> if the anchorable cannot be found.
+            </returns>
+            <exception cref="T:System.ArgumentException">
+            The <paramref name="name"/> is <c>null</c> or whitespace.
+            </exception>
+        </member>
+        <member name="M:Orchestra.Views.MainWindow.InitializeMainWindow">
+            <summary>
+            Loads the application Icon.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Orchestra.Views.MainWindow.StatusBar">
+            <summary>
+            Gets or sets the status bar.
+            </summary>
+            <value>The status bar.</value>
+        </member>
+        <member name="P:Orchestra.Views.MainWindow.ViewModel">
+            <summary>
+            Gets the view model that is contained by the container.
+            </summary>
+            <value>
+            The view model.
+            </value>
+        </member>
+        <member name="E:Orchestra.Views.MainWindow.ViewModelChanged">
+            <summary>
+            Occurs when the <see cref="P:Orchestra.Views.MainWindow.ViewModel"/> property has changed.
+            </summary>
+        </member>
+        <member name="E:Orchestra.Views.MainWindow.ViewModelPropertyChanged">
+            <summary>
+            Occurs when a property on the <see cref="P:Orchestra.Views.MainWindow.ViewModel"/> has changed.
+            </summary>
+        </member>
+        <member name="E:Orchestra.Views.MainWindow.PropertyChanged">
+            <summary>
+            Occurs when a property on the container has changed.
+            </summary>
+            <remarks>
+            This event makes it possible to externally subscribe to property changes of a <see cref="T:System.Windows.DependencyObject"/>
+            (mostly the container of a view model) because the .NET Framework does not allows us to.
+            </remarks>
+        </member>
+        <member name="T:Orchestra.Views.SplashScreen">
+            <summary>
+            Interaction logic for SplashScreen.xaml
+            </summary>
+            <summary>
+            SplashScreen
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.SplashScreen.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Views.SplashScreen"/> class.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.SplashScreen.InitializeSplashScreen">
+            <summary>
+            Initializes the splash screen.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.SplashScreen.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

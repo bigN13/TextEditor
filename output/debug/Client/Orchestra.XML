@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orchestra</name>
+    </assembly>
+    <members>
+        <member name="T:Orchestra.App">
+            <summary>
+            Interaction logic for App.xaml.
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Orchestra.App.OnStartup(System.Windows.StartupEventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Application.Startup"/> event.
+            </summary>
+            <param name="e">
+            A <see cref="T:System.Windows.StartupEventArgs"/> that contains the event data.
+            </param>
+        </member>
+        <member name="M:Orchestra.App.ConfigureShell(Orchestra.Services.IConfigurationService)">
+            <summary>
+            Exemple on how to configure the shell.
+            </summary>
+            <param name="configurationService">
+            The configuration service.
+            </param>
+        </member>
+        <member name="M:Orchestra.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Resources.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Resources.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Resources.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Resources.Resources.HelpButtonText">
+            <summary>
+              Looks up a localized string similar to About.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Resources.Resources.HelpGroupText">
+            <summary>
+              Looks up a localized string similar to Help.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Resources.Resources.HelpRibbonTabText">
+            <summary>
+              Looks up a localized string similar to Help.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

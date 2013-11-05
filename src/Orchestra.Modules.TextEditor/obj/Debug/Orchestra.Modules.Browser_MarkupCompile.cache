@@ -1,0 +1,20 @@
+﻿Orchestra.Modules.Browser
+
+
+library
+C#
+.cs
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra with browser module\src\Orchestra.Modules.Browser\obj\Debug\
+Orchestra.Modules.Browser
+none
+false
+DEBUG;TRACE
+
+3537771114
+
+7885065622
+241346605097
+ResourceDictionary.xaml;Views\BrowserView.xaml;Views\PropertiesView.xaml;
+
+False
+

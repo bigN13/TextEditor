@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OxyPlot.Library</name>
+    </assembly>
+    <members>
+        <member name="T:OxyPlot.Models.DataPoint">
+            <summary>
+            The datapoint class.
+            </summary>
+        </member>
+        <member name="M:OxyPlot.Models.DataPoint.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:OxyPlot.Models.DataPoint"/> class.
+            </summary>
+        </member>
+        <member name="M:OxyPlot.Models.DataPoint.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OxyPlot.Models.DataPoint"/> class.
+            </summary>
+        </member>
+        <member name="P:OxyPlot.Models.DataPoint.X">
+            <summary>
+            Gets or sets the X.
+            </summary>
+            <value>The X.</value>
+        </member>
+        <member name="P:OxyPlot.Models.DataPoint.Y">
+            <summary>
+            Gets or sets the Y.
+            </summary>
+            <value>The Y.</value>
+        </member>
+        <member name="T:OxyPlot.Models.LineSeries">
+            <summary>
+            The line series.
+            </summary>
+        </member>
+        <member name="M:OxyPlot.Models.LineSeries.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OxyPlot.Models.LineSeries"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <exception cref="T:System.ArgumentException">The <paramref name="name"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="P:OxyPlot.Models.LineSeries.Name">
+            <summary>
+            Gets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:OxyPlot.Models.LineSeries.Points">
+            <summary>
+            Gets the points.
+            </summary>
+            <value>The points.</value>
+        </member>
+        <member name="T:OxyPlot.Models.OxyPlotModel">
+            <summary>
+            Defines plot data that can be drawn in OxyPlot.
+            </summary>
+        </member>
+        <member name="M:OxyPlot.Models.OxyPlotModel.#ctor(OxyPlot.Models.SerieTypes,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OxyPlot.Models.OxyPlotModel"/> class.
+            </summary>
+            <param name="serieType">The serie type.</param>.
+            <param name="name">The name.</param>
+            <param name="legend">The legend.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="name"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="legend"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:OxyPlot.Models.OxyPlotModel.SerieType">
+            <summary>
+            Gets the serie type.
+            </summary>
+            <value>The serie type.</value>
+        </member>
+        <member name="P:OxyPlot.Models.OxyPlotModel.Name">
+            <summary>
+            Gets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:OxyPlot.Models.OxyPlotModel.Legend">
+            <summary>
+            Gets the legend.
+            </summary>
+            <value>The legend.</value>
+        </member>
+        <member name="P:OxyPlot.Models.OxyPlotModel.XLabel">
+            <summary>
+            Gets or sets the X label.
+            </summary>
+            <value>The X label.</value>
+        </member>
+        <member name="P:OxyPlot.Models.OxyPlotModel.XValues">
+            <summary>
+            Gets or sets the X values.
+            </summary>
+            <value>The X values.</value>
+        </member>
+        <member name="P:OxyPlot.Models.OxyPlotModel.YLabel">
+            <summary>
+            Gets or sets the Y label.
+            </summary>
+            <value>The Y label.</value>
+        </member>
+        <member name="P:OxyPlot.Models.OxyPlotModel.YValues">
+            <summary>
+            Gets or sets the Y values.
+            </summary>
+            <value>The Y values.</value>
+        </member>
+        <member name="P:OxyPlot.Models.OxyPlotModel.Series">
+            <summary>
+            Gets the line series.
+            </summary>
+            <value>The line series.</value>
+        </member>
+        <member name="T:OxyPlot.Models.SerieTypes">
+            <summary>
+            Possible serie types.
+            </summary>
+        </member>
+        <member name="F:OxyPlot.Models.SerieTypes.Line">
+            <summary>
+            Line series.
+            </summary>
+        </member>
+        <member name="T:OxyPlot.Services.IOxyPlotService">
+            <summary>
+            Interface exposing all external OxyPlot interaction possibilities.
+            </summary>
+        </member>
+        <member name="M:OxyPlot.Services.IOxyPlotService.Plot(OxyPlot.Models.OxyPlotModel)">
+            <summary>
+            Plots the specified plotModel model.
+            </summary>
+            <param name="plotModel">The plotModel.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="plotModel"/> is <c>null</c>.</exception>
+        </member>
+    </members>
+</doc>

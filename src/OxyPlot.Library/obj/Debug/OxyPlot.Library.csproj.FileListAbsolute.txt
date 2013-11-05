@@ -1,0 +1,10 @@
+\\Dine-pc\έγγραφα\Git\Orchestra\output\debug\Client\OxyPlot.Library.XML
+\\Dine-pc\έγγραφα\Git\Orchestra\src\OxyPlot.Library\obj\Debug\OxyPlot.Library.csprojResolveAssemblyReference.cache
+\\Dine-pc\έγγραφα\Git\Orchestra\src\OxyPlot.Library\obj\Debug\OxyPlot.Library.dll
+\\Dine-pc\έγγραφα\Git\Orchestra\src\OxyPlot.Library\obj\Debug\OxyPlot.Library.pdb
+F:\Έγγραφα\Git\Orchestra\output\debug\Client\OxyPlot.Library.XML
+F:\Έγγραφα\Git\Orchestra\output\debug\Client\OxyPlot.Library.dll
+F:\Έγγραφα\Git\Orchestra\output\debug\Client\OxyPlot.Library.pdb
+F:\Έγγραφα\Git\Orchestra\src\OxyPlot.Library\obj\Debug\OxyPlot.Library.csprojResolveAssemblyReference.cache
+F:\Έγγραφα\Git\Orchestra\src\OxyPlot.Library\obj\Debug\OxyPlot.Library.dll
+F:\Έγγραφα\Git\Orchestra\src\OxyPlot.Library\obj\Debug\OxyPlot.Library.pdb

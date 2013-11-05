@@ -1,0 +1,1737 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orchestra.Library</name>
+    </assembly>
+    <members>
+        <member name="T:Orchestra.Controls.BindableLayoutDocument">
+            <summary>
+            Bindable implementation of the <see cref="T:Xceed.Wpf.AvalonDock.Layout.LayoutDocument"/> which automatically binds
+            the title.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Controls.BindableLayoutDocument.#ctor(System.Windows.FrameworkElement,System.Object,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Controls.BindableLayoutDocument"/> class.
+            </summary>
+            <param name="view">The view.</param>
+            <param name="tag">The tag.</param>
+            <param name="canFloat">if set to <c>true</c> [can float].</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="view"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.Controls.BindableLayoutDocument.OnClosed">
+            <summary>
+            Called when the document is closed.
+            </summary>
+        </member>
+        <member name="T:Orchestra.AvalonDockHelper">
+            <summary>
+            Helper class for avalon dock.
+            </summary>
+        </member>
+        <member name="F:Orchestra.AvalonDockHelper.DockingManager">
+            <summary>
+            Docking manager reference.
+            </summary>
+        </member>
+        <member name="F:Orchestra.AvalonDockHelper.LayoutDocumentPane">
+            <summary>
+            The layout document pane.
+            </summary>
+        </member>
+        <member name="F:Orchestra.AvalonDockHelper.LayoutAnchorGroup">
+            <summary>
+            The layout anchor group
+            </summary>
+        </member>
+        <member name="F:Orchestra.AvalonDockHelper.RightLayoutAnchorablePane">
+            <summary>
+            The layout anchorable pane on the right side.
+            </summary>
+        </member>
+        <member name="F:Orchestra.AvalonDockHelper.LeftLayoutAnchorablePane">
+            <summary>
+            The layout anchorable pane on the left side.
+            </summary>
+        </member>
+        <member name="F:Orchestra.AvalonDockHelper.ContextualViewModelManager">
+            <summary>
+            The <see cref="T:Orchestra.IContextualViewModelManager"/>
+            </summary>
+        </member>
+        <member name="F:Orchestra.AvalonDockHelper.BottomPropertiesPane">
+            <summary>
+            The layout anchor group on the bottom side.
+            </summary>
+        </member>
+        <member name="F:Orchestra.AvalonDockHelper.TopPropertiesPane">
+            <summary>
+            The layout anchor group on the Top.
+            </summary>
+        </member>
+        <member name="M:Orchestra.AvalonDockHelper.#cctor">
+            <summary>
+            Initializes static members of the <see cref="T:Orchestra.AvalonDockHelper"/> class. 
+            </summary>
+        </member>
+        <member name="M:Orchestra.AvalonDockHelper.FindDocument(System.Type,System.Object)">
+            <summary>
+            Gets the document.
+            </summary>
+            <param name="viewType">Type of the view.</param>
+            <param name="tag">The tag.</param>
+            <returns>The found document or <c>null</c> if no document was found.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="viewType"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.AvalonDockHelper.FindDocument(Xceed.Wpf.AvalonDock.DockingManager,System.Type,System.Object)">
+            <summary>
+            Gets the document.
+            </summary>
+            <param name="docingManager">The docing manager .</param>
+            <param name="viewType">Type of the view.</param>
+            <param name="tag">The tag.</param>
+            <returns>
+            The found document or <c>null</c> if no document was found.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="docingManager"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="docingManager"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.AvalonDockHelper.ActivateDocument(Xceed.Wpf.AvalonDock.Layout.LayoutAnchorable)">
+            <summary>
+            Activates the document in the docking manager, which makes it the active document.
+            </summary>
+            <param name="document">The document.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="document"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.AvalonDockHelper.DockView(Xceed.Wpf.AvalonDock.Layout.LayoutAnchorable,Orchestra.Models.DockLocation)">
+            <summary>
+            Dock a view to the specified <see cref="T:Orchestra.Models.DockLocation"/>
+            </summary>
+            <param name="document">The document.</param>
+            <param name="dockLocation">The <see cref="T:Orchestra.Models.DockLocation"/>.</param>
+        </member>
+        <member name="M:Orchestra.AvalonDockHelper.CreateDocument(System.Windows.FrameworkElement,System.Object)">
+            <summary>
+            Creates the document.
+            </summary>
+            <param name="view">The view.</param>
+            <param name="tag">The tag.</param>        
+            <returns>
+            The created layout document.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="view"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.AvalonDockHelper.AddNewDocumentToDockingManager(System.Nullable{Orchestra.Models.DockLocation},Xceed.Wpf.AvalonDock.Layout.LayoutAnchorable)">
+            <summary>
+            Adds the new document to docking manager.
+            </summary>
+            <param name="dockLocation">The dock location.</param>
+            <param name="layoutDocument">The layout document.</param>
+        </member>
+        <member name="M:Orchestra.AvalonDockHelper.WrapViewInLayoutDocument(System.Windows.FrameworkElement,System.Object,System.Boolean)">
+            <summary>
+            Wraps the view in a layout document.
+            </summary>
+            <param name="view">The view.</param>
+            <param name="tag">The tag.</param>
+            <param name="canFloat">if set to <c>true</c> [can float].</param>
+            <returns>
+            A wrapped layout document.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="view"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.AvalonDockHelper.OnDockingManagerDocumentClosed(System.Object,Xceed.Wpf.AvalonDock.DocumentClosedEventArgs)">
+            <summary>
+            Called when the docking manager has just closed a document.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:Xceed.Wpf.AvalonDock.DocumentClosedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Orchestra.AvalonDockHelper.CloseDocument(Xceed.Wpf.AvalonDock.Layout.LayoutAnchorable)">
+            <summary>
+            Closes the document.
+            </summary>
+            <param name="document">The document.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="document"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.AvalonDockHelper.DockingManagerActiveContentChanged(System.Object,System.EventArgs)">
+            <summary>
+            Handles the ActiveContentChanged event of the DockingManager control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:Orchestra.AvalonDockHelper.RegionManager">
+            <summary>
+            Gets the region manager.
+            </summary>
+        </member>
+        <member name="P:Orchestra.AvalonDockHelper.ActivatedView">
+            <summary>
+            Gets or sets the activated view.
+            </summary>
+            <value>
+            The activated view.
+            </value>
+        </member>
+        <member name="T:Orchestra.FluentRibbonHelper">
+            <summary>
+            Helper class for the <see cref="T:Fluent.Ribbon"/> control.
+            </summary>
+        </member>
+        <member name="F:Orchestra.FluentRibbonHelper.Log">
+            <summary>
+            The log.
+            </summary>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.SelectTabItem(Fluent.Ribbon,System.String)">
+            <summary>
+            Selects the tab item in the ribbon. If the tab cannot be found, the first tab will be
+            selected.
+            </summary>
+            <param name="ribbon">The ribbon.</param>
+            <param name="header">The header.</param>
+            <returns>The selected ribbon tab item.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="ribbon"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="header"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.EnsureContextualTabGroup(Fluent.Ribbon,System.String)">
+            <summary>
+            Ensures that a contextual tab item group with the specified header exists.
+            </summary>
+            <param name="ribbon">The ribbon.</param>
+            <param name="header">The header.</param>
+            <returns>The existing or newly created <see cref="T:Fluent.RibbonTabItem"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="ribbon"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="header"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.EnsureTabItem(Fluent.Ribbon,System.String)">
+            <summary>
+            Ensures that a tab item with the specified header exists.
+            </summary>
+            <param name="ribbon">The ribbon.</param>
+            <param name="header">The header.</param>
+            <returns>The existing or newly created <see cref="T:Fluent.RibbonTabItem"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="ribbon"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="header"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.EnsureContextualTabItem(Fluent.Ribbon,System.String,System.String)">
+            <summary>
+            Ensures that a contextual tab item with the specified header exists.
+            </summary>
+            <param name="ribbon">The ribbon.</param>
+            <param name="header">The header.</param>
+            <param name="contextualTabGroupHeader">The contextual tab group header.</param>
+            <returns>The existing or newly created <see cref="T:Fluent.RibbonTabItem"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="ribbon"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="header"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="contextualTabGroupHeader"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.EnsureGroupBox(Fluent.RibbonTabItem,System.String)">
+            <summary>
+            Ensures that a groupbox with the specified header exists.
+            </summary>
+            <param name="tabItem">The tab item.</param>
+            <param name="header">The header.</param>
+            <returns>The existing or newlhy created <see cref="T:Fluent.RibbonGroupBox"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="tabItem"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="header"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.AddRibbonItem(System.Windows.Controls.ItemsControl,Orchestra.Models.IRibbonItem)">
+            <summary>
+            Adds the ribbon item to the specified <see cref="T:System.Windows.Controls.ItemsControl"/>.
+            </summary>
+            <param name="itemsControl">The items control.</param>
+            <param name="ribbonItem">The ribbon item.</param>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.AddButton(System.Windows.Controls.ItemsControl,System.String,System.String,System.String,System.Windows.Input.ICommand)">
+            <summary>
+            Adds a new button to the specified <see cref="T:System.Windows.Controls.ItemsControl"/>.
+            </summary>
+            <param name="itemsControl">The items control.</param>
+            <param name="header">The header.</param>
+            <param name="icon">The icon.</param>
+            <param name="largeIcon">The large icon.</param>
+            <param name="command">The command.</param>
+            <returns>The created button.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="itemsControl"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="header"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="command"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.AddButton(System.Windows.Controls.ItemsControl,System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            Adds a new button to the specified <see cref="T:System.Windows.Controls.ItemsControl"/>.
+            </summary>
+            <param name="itemsControl">The items control.</param>
+            <param name="header">The header.</param>
+            <param name="icon">The icon.</param>
+            <param name="largeIcon">The large icon.</param>
+            <param name="commandName">The command name.</param>
+            <param name="commandSource">The command source, can be <c>null</c> to respect the data context.</param>
+            <returns>The created button.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="itemsControl"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="header"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="commandName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.CreateButtonWithoutCommandBinding(System.Windows.Controls.ItemsControl,System.String,System.String,System.String)">
+            <summary>
+            Creates the button without command binding.
+            </summary>
+            <param name="itemsControl">The items control.</param>
+            <param name="header">The header.</param>
+            <param name="icon">The icon.</param>
+            <param name="largeIcon">The large icon.</param>
+            <returns>Button.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="itemsControl"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="header"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.AddGallery(System.Windows.Controls.ItemsControl,System.Collections.Generic.IEnumerable{Orchestra.Models.IRibbonItem},System.Windows.Controls.Orientation,System.Boolean,System.Double,System.Double,System.Int32,System.Int32,System.Windows.Style)">
+            <summary>
+            Adds a new gallery to the specified <see cref="T:System.Windows.Controls.ItemsControl"/>.
+            </summary>
+            <param name="itemsControl">The items control.</param>
+            <param name="items">The list of items.</param>
+            <param name="orientation">The gallery orientation.</param>
+            <param name="selectable">if set to <c>true</c> is selectable.</param>
+            <param name="itemWidth">Width of the item.</param>
+            <param name="itemHeight">Height of the item.</param>
+            <param name="minItemsInRow">The min items in row.</param>
+            <param name="maxItemsInRow">The max items in row.</param>
+            <param name="itemContainerStyle">The item container style.</param>
+            <returns>
+            The created gallery.
+            </returns>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.AddSplitButton(System.Windows.Controls.ItemsControl,System.Collections.Generic.List{Orchestra.Models.IRibbonItem},System.String,System.String,System.String,System.Windows.Input.ICommand)">
+            <summary>
+            Adds a new button to the specified <see cref="T:System.Windows.Controls.ItemsControl"/>.
+            </summary>
+            <param name="itemsControl">The items control.</param>
+            <param name="items">The nested items.</param>
+            <param name="header">The header.</param>
+            <param name="icon">The icon.</param>
+            <param name="largeIcon">The large icon.</param>
+            <param name="command">The command.</param>
+            <returns>The created split button.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="itemsControl"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="header"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="command"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.AddSplitButton(System.Windows.Controls.ItemsControl,System.Collections.Generic.List{Orchestra.Models.IRibbonItem},System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            Adds a new button to the specified <see cref="T:System.Windows.Controls.ItemsControl"/>.
+            </summary>
+            <param name="itemsControl">The items control.</param>
+            <param name="items">The nested items.</param>
+            <param name="header">The header.</param>
+            <param name="icon">The icon.</param>
+            <param name="largeIcon">The large icon.</param>
+            <param name="commandName">The command name.</param>
+            <param name="commandSource">The command source, can be <c>null</c> to respect the data context.</param>
+            <returns>The created split button.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="itemsControl"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="header"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="commandName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.CreateSplitButtonWithoutCommandBinding(System.Windows.Controls.ItemsControl,System.Collections.Generic.List{Orchestra.Models.IRibbonItem},System.String,System.String,System.String)">
+            <summary>
+            Creates the button without command binding.
+            </summary>
+            <param name="itemsControl">The items control.</param>
+            <param name="items">The nested items.</param>
+            <param name="header">The header.</param>
+            <param name="icon">The icon.</param>
+            <param name="largeIcon">The large icon.</param>
+            <returns>Split button.</returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="itemsControl"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="header"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.AddComboBox(System.Windows.Controls.ItemsControl,System.String,System.String,System.String,System.Object)">
+            <summary>
+            Adds a new combobox to the specified <see cref="T:System.Windows.Controls.ItemsControl"/>.
+            </summary>
+            <param name="itemsControl">The items control.</param>
+            <param name="header">The header.</param>
+            <param name="itemsSource">The items source collection.</param>
+            <param name="selectedItem">The selected item.</param>
+            <param name="bindingSource">The binding source.</param>
+            <returns>
+            The created <see cref="T:Fluent.ComboBox"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="itemsControl"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="header"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="itemsControl"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.AddContentControl(System.Windows.Controls.ItemsControl,System.String,System.Windows.DataTemplate)">
+            <summary>
+            Adds the content control.
+            </summary>
+            <param name="itemsControl">The items control.</param>
+            <param name="header">The header.</param>
+            <param name="template">The DataTemplate for the ContentTemplate of the ContentControl.</param>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.CreateComboBoxWithoutBinding(System.Windows.Controls.ItemsControl,System.String)">
+            <summary>
+            Creates the combobox without command binding.
+            </summary>
+            <param name="itemsControl">The items control.</param>
+            <param name="header">The header.</param>
+            <returns>
+            Button.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">The <paramref header="itemsControl"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref header="header"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.ApplyLayout(Fluent.RibbonGroupBox,System.Windows.Controls.Control,Orchestra.Models.IRibbonItemLayout)">
+            <summary>
+            Applies the layout.
+            </summary>
+            <param name="groupBox">The group box.</param>
+            <param name="control">The control.</param>
+            <param name="layout">The layout.</param>
+        </member>
+        <member name="M:Orchestra.FluentRibbonHelper.RemoveItem(Fluent.Ribbon,Orchestra.Models.IRibbonControl)">
+            <summary>
+            Removes the specified <see cref="T:Orchestra.Models.IRibbonControl"/> from the ribbon.
+            </summary>
+            <param name="ribbon">The ribbon.</param>
+            <param name="ribbonControl">The ribbon item.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="ribbon"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="ribbonControl"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Orchestra.Layout.LayoutInitializer">
+            <summary>
+            Layout initializer for Orchestra.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Layout.LayoutInitializer.BeforeInsertAnchorable(Xceed.Wpf.AvalonDock.Layout.LayoutRoot,Xceed.Wpf.AvalonDock.Layout.LayoutAnchorable,Xceed.Wpf.AvalonDock.Layout.ILayoutContainer)">
+            <summary>
+            Befores the insert anchorable.
+            </summary>
+            <param name="layout">The layout.</param>
+            <param name="anchorableToShow">The anchorable to show.</param>
+            <param name="destinationContainer">The destination container.</param>
+            <returns>The <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Orchestra.Layout.LayoutInitializer.AfterInsertAnchorable(Xceed.Wpf.AvalonDock.Layout.LayoutRoot,Xceed.Wpf.AvalonDock.Layout.LayoutAnchorable)">
+            <summary>
+            Called after an anchorable item is inserted.
+            </summary>
+            <param name="layout">The layout.</param>
+            <param name="anchorableShown">The anchorable shown.</param>
+        </member>
+        <member name="M:Orchestra.Layout.LayoutInitializer.BeforeInsertDocument(Xceed.Wpf.AvalonDock.Layout.LayoutRoot,Xceed.Wpf.AvalonDock.Layout.LayoutDocument,Xceed.Wpf.AvalonDock.Layout.ILayoutContainer)">
+            <summary>
+            The before insert document.
+            </summary>
+            <param name="layout">The layout.</param>
+            <param name="anchorableToShow">The anchorable to show.</param>
+            <param name="destinationContainer">The destination container.</param>
+            <returns>The <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Orchestra.Layout.LayoutInitializer.AfterInsertDocument(Xceed.Wpf.AvalonDock.Layout.LayoutRoot,Xceed.Wpf.AvalonDock.Layout.LayoutDocument)">
+            <summary>
+            The after insert document.
+            </summary>
+            <param name="layout">The layout.</param>
+            <param name="anchorableShown">The anchorable shown.</param>
+        </member>
+        <member name="M:Orchestra.Layout.LayoutInitializer.InsertAnchorable(Xceed.Wpf.AvalonDock.Layout.LayoutRoot,Xceed.Wpf.AvalonDock.Layout.LayoutAnchorable,Xceed.Wpf.AvalonDock.Layout.ILayoutContainer)">
+            <summary>
+            Inserts the anchorable.
+            </summary>
+            <param name="layout">The layout.</param>
+            <param name="anchorableToShow">The anchorable to show.</param>
+            <param name="destinationContainer">The destination container.</param>
+            <returns>The <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="T:Orchestra.Models.ContextSensitviveViewModelData">
+            <summary>
+            Helper DTO class for holding data relevant for a context sensitive 'parent' viewmodel.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Models.ContextSensitviveViewModelData.#ctor(System.String,Orchestra.Models.DockLocation)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Models.ContextSensitviveViewModelData"/> class.
+            </summary>
+            <param name="title">The title.</param>
+            <param name="dockLocation">The dock location.</param>
+        </member>
+        <member name="P:Orchestra.Models.ContextSensitviveViewModelData.ContextDependentViewModels">
+            <summary>
+            Gets or sets the viewmodels that are contextsensive, for the ViewModel this ContextSensitviveViewModelData is related to.
+            </summary>
+            <value>
+            The context dependent view models.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.ContextSensitviveViewModelData.Title">
+            <summary>
+            Gets or sets the title for the contextsensitive view.
+            </summary>
+            <value>
+            The title.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.ContextSensitviveViewModelData.DockLocation">
+            <summary>
+            Gets or sets the dock location.
+            </summary>
+            <value>
+            The dock location.
+            </value>
+        </member>
+        <member name="T:Orchestra.Models.DockLocation">
+            <summary>
+            This enum contains the possible docking locations for windows.
+            </summary>
+        </member>
+        <member name="F:Orchestra.Models.DockLocation.Left">
+            <summary>
+            The left
+            </summary>
+        </member>
+        <member name="F:Orchestra.Models.DockLocation.Right">
+            <summary>
+            The right
+            </summary>
+        </member>
+        <member name="F:Orchestra.Models.DockLocation.Top">
+            <summary>
+            The top
+            </summary>
+        </member>
+        <member name="F:Orchestra.Models.DockLocation.Bottom">
+            <summary>
+            The bottom
+            </summary>
+        </member>
+        <member name="T:Orchestra.Models.IContextualViewModel">
+            <summary>
+            Interface can be used to inform a viewmodel that it's View has become active in Orchestra.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Models.IContextualViewModel.ViewModelActivated">
+            <summary>
+            Method is called when the active view changes within the orchestra application
+            </summary>
+        </member>
+        <member name="T:Orchestra.Models.IRibbonButton">
+            <summary>
+            Provides a ribbon button methods and properties.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Models.IRibbonControl">
+            <summary>
+            Provides a common ribbon item methods and properties.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Models.IRibbonItem">
+            <summary>
+            Represents a root interface for all ribbon items.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonControl.ContextualTabItemGroupName">
+            <summary>
+            Gets or sets the name of the contextual tab item group.
+            <para/>
+            This value is only used when <see cref="P:Orchestra.Models.IRibbonControl.Context"/> is set to <see cref="F:Orchestra.Models.RibbonContext.View"/>.
+            </summary>
+            <value>The name of the contextual tab item group.</value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonControl.TabItemHeader">
+            <summary>
+            Gets the tab item header.
+            </summary>
+            <value>The tab item header.</value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonControl.GroupBoxHeader">
+            <summary>
+            Gets the group box header.
+            </summary>
+            <value>The group box header.</value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonControl.ItemHeader">
+            <summary>
+            Gets the item header.
+            </summary>
+            <value>The item header.</value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonControl.OnlyShowWhenTabIsActivated">
+            <summary>
+            Gets a value indiciating whether this ribbon item should only be shown when 
+            the tab is actually activated.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonControl.Context">
+            <summary>
+            Gets the context.
+            </summary>
+            <value>The context.</value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonControl.Behavior">
+            <summary>
+            Gets or sets the behavior.
+            </summary>
+            <value>The behavior.</value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonControl.Layout">
+            <summary>
+            Gets the ribbon item layout.
+            </summary>
+            <value>
+            The ribbon item layout.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonControl.Style">
+            <summary>
+            Gets the ribbon item style.
+            </summary>
+            <value>
+            The ribbon item style.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonControl.ToolTip">
+            <summary>
+            Gets or sets the ribbon item tooltip.
+            </summary>
+            <value>
+            The ribbon item tooltip.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonButton.ItemImage">
+            <summary>
+            Gets or sets the item image.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonButton.Command">
+            <summary>
+            Gets the command.
+            <para/>
+            If this command is set, it will be used directly. Otherwise a binding to the active document will be created 
+            using the <see cref="P:Orchestra.Models.IRibbonButton.CommandName"/> property.
+            </summary>
+            <value>The command.</value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonButton.CommandName">
+            <summary>
+            Gets the name of the command.
+            <para/>
+            The <see cref="P:Orchestra.Models.IRibbonButton.Command"/> property always is used first. If that value is <c>null</c>, this value will be used
+            to bind the command to the active document.
+            </summary>
+            <value>The name of the command.</value>
+        </member>
+        <member name="T:Orchestra.Models.IRibbonComboBox">
+            <summary>
+            Provides a ribbon combo box methods and properties.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonComboBox.ItemsSource">
+            <summary>
+            Gets the items source.
+            </summary>
+            <value>
+            The items source.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonComboBox.SelectedItem">
+            <summary>
+            Gets the selected item.
+            </summary>
+            <value>
+            The selected item.
+            </value>
+        </member>
+        <member name="T:Orchestra.Models.RibbonContext">
+            <summary>
+            The ribbon context.
+            </summary>
+        </member>
+        <member name="F:Orchestra.Models.RibbonContext.Global">
+            <summary>
+            Global, which means always visible.
+            </summary>
+        </member>
+        <member name="F:Orchestra.Models.RibbonContext.View">
+            <summary>
+            View, which means only when the view it is registered with is visible.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Models.RibbonBehavior">
+            <summary>
+            The ribbon behaviors.
+            </summary>
+        </member>
+        <member name="F:Orchestra.Models.RibbonBehavior.None">
+            <summary>
+            No specific behavior.
+            </summary>
+        </member>
+        <member name="F:Orchestra.Models.RibbonBehavior.ActivateTab">
+            <summary>
+            Activates the tab.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Models.IRibbonGallery">
+            <summary>
+            Provides a ribbon gallery methods and properties.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Models.IRibbonItemsCollection">
+            <summary>
+            Provides a ribbon items collection methods and properties.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonItemsCollection.Items">
+            <summary>
+            Gets or sets the items collection.
+            </summary>
+            <value>
+            The items collection.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonItemsCollection.ItemContainerStyle">
+            <summary>
+            Gets or sets the item container style.
+            </summary>
+            <value>
+            The item container style.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonGallery.Orientation">
+            <summary>
+            Gets or sets the orientation of gallery.
+            </summary>
+            <value>
+            The orientation of gallery.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonGallery.Selectable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Orchestra.Models.IRibbonItem"/> is selectable.
+            </summary>
+            <value>
+              <c>true</c> if selectable; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonGallery.ItemWidth">
+            <summary>
+            Gets or sets the width of the item.
+            </summary>
+            <value>
+            The width of the item.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonGallery.ItemHeight">
+            <summary>
+            Gets or sets the height of the item.
+            </summary>
+            <value>
+            The height of the item.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonGallery.MinItemsInRow">
+            <summary>
+            Gets or sets the min items in row.
+            </summary>
+            <value>
+            The min items in row.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonGallery.MaxItemsInRow">
+            <summary>
+            Gets or sets the max items in row.
+            </summary>
+            <value>
+            The max items in row.
+            </value>
+        </member>
+        <member name="T:Orchestra.Models.IRibbonItemLayout">
+            <summary>
+            Provides information about the ribbon item layout.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonItemLayout.Width">
+            <summary>
+            Gets the width of the ribbon item.
+            </summary>
+            <value>
+            The width of the ribbon item.
+            </value>
+        </member>
+        <member name="T:Orchestra.Models.IRibbonSplitButton">
+            <summary>
+            Provides a ribbon split button methods and properties.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Models.IRibbonToolTip">
+            <summary>
+            Provides a ribbon tooltip methods and properties.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonToolTip.Title">
+            <summary>
+            Gets or sets the ribbon tooltip title.
+            </summary>
+            <value>
+            The ribbon tooltip title.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonToolTip.Text">
+            <summary>
+            Gets or sets the ribbon tooltip text.
+            </summary>
+            <value>
+            The ribbon tooltip text.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonToolTip.Width">
+            <summary>
+            Gets or sets the ribbon tooltip width.
+            </summary>
+            <value>
+            The ribbon tooltip width.
+            </value>
+        </member>
+        <member name="T:Orchestra.Models.RibbonButton">
+            <summary>
+            Represents a ribbon button
+            </summary>
+        </member>
+        <member name="T:Orchestra.Models.RibbonControlBase">
+            <summary>
+            Defines a ribbon item base class
+            </summary>
+        </member>
+        <member name="M:Orchestra.Models.RibbonControlBase.#ctor(System.String,System.String,System.String,Orchestra.Models.RibbonBehavior)">
+            <summary>
+            Prevents a default instance of the <see cref="T:Orchestra.Models.RibbonControlBase"/> class from being created.
+            </summary>
+            <param name="tabItemHeader">The tab item header.</param>
+            <param name="groupBoxHeader">The group box header.</param>
+            <param name="itemHeader">The item header.</param>
+            <param name="behavior">The behavior.</param>
+            <exception cref="T:System.ArgumentException">The <paramref name="tabItemHeader"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="groupBoxHeader"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.Models.RibbonControlBase.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="P:Orchestra.Models.RibbonControlBase.ContextualTabItemGroupName">
+            <summary>
+            Gets or sets the name of the contextual tab item group.
+            <para/>
+            This value is only used when <see cref="P:Orchestra.Models.RibbonControlBase.Context"/> is set to <see cref="F:Orchestra.Models.RibbonContext.View"/>.
+            </summary>
+            <value>The name of the contextual tab item group.</value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonControlBase.TabItemHeader">
+            <summary>
+            Gets the tab item header.
+            </summary>
+            <value>The tab item header.</value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonControlBase.GroupBoxHeader">
+            <summary>
+            Gets the group box header.
+            </summary>
+            <value>The group box header.</value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonControlBase.ItemHeader">
+            <summary>
+            Gets the item header.
+            </summary>
+            <value>The item header.</value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonControlBase.OnlyShowWhenTabIsActivated">
+            <summary>
+            Gets a value indiciating whether this ribbon item should only be shown when 
+            the tab is actually activated.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.RibbonControlBase.Context">
+            <summary>
+            Gets or sets the context.
+            </summary>
+            <value>The context.</value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonControlBase.Behavior">
+            <summary>
+            Gets or sets the behavior.
+            </summary>
+            <value>The behavior.</value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonControlBase.Layout">
+            <summary>
+            Gets or sets the ribbon item layout.
+            </summary>
+            <value>
+            The ribbon item layout.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonControlBase.Style">
+            <summary>
+            Gets or sets the ribbon item style.
+            </summary>
+            <value>
+            The ribbon item style.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonControlBase.ToolTip">
+            <summary>
+            Gets or sets the ribbon item tool tip.
+            </summary>
+            <value>
+            The ribbon item tool tip.
+            </value>
+        </member>
+        <member name="M:Orchestra.Models.RibbonButton.#ctor(System.String,System.String,System.String,System.Windows.Input.ICommand,Orchestra.Models.RibbonBehavior)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Models.RibbonButton"/> class.
+            </summary>
+            <param name="tabItemHeader">The tab item header.</param>
+            <param name="groupBoxHeader">The group box header.</param>
+            <param name="itemHeader">The item header.</param>
+            <param name="command">The command.</param>
+            <param name="behavior">The behavior.</param>
+            <exception cref="T:System.ArgumentException">The <paramref name="tabItemHeader"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="groupBoxHeader"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="itemHeader"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="command"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.Models.RibbonButton.#ctor(System.String,System.String,System.String,System.String,Orchestra.Models.RibbonBehavior)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Models.RibbonButton"/> class.
+            </summary>
+            <param name="tabItemHeader">The tab item header.</param>
+            <param name="groupBoxHeader">The group box header.</param>
+            <param name="itemHeader">The item header.</param>
+            <param name="commandName">The name of the command.</param>
+            <param name="behavior">The behavior.</param>
+            <exception cref="T:System.ArgumentException">The <paramref name="tabItemHeader"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="groupBoxHeader"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="itemHeader"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="commandName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="P:Orchestra.Models.RibbonButton.ItemImage">
+            <summary>
+            Gets or sets the item image.
+            </summary>
+            <value>The item image.</value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonButton.CommandName">
+            <summary>
+            Gets the name of the command.
+            <para/>
+            The <see cref="P:Orchestra.Models.RibbonButton.Command"/> property always is used first. If that value is <c>null</c>, this value will be used
+            to bind the command to the active document.
+            </summary>
+            <value>The name of the command.</value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonButton.Command">
+            <summary>
+            Gets the command.
+            <para/>
+            If this command is set, it will be used directly. Otherwise a binding to the active document will be created
+            using the <see cref="P:Orchestra.Models.RibbonButton.CommandName"/> property.
+            </summary>
+            <value>The command.</value>
+        </member>
+        <member name="T:Orchestra.Models.RibbonComboBox">
+            <summary>
+            Represents a ribbon combo box
+            </summary>
+        </member>
+        <member name="M:Orchestra.Models.RibbonComboBox.#ctor(System.String,System.String,System.String,Orchestra.Models.RibbonBehavior)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Models.RibbonComboBox"/> class.
+            </summary>
+            <param name="tabItemHeader">The tab item header.</param>
+            <param name="groupBoxHeader">The group box header.</param>
+            <param name="itemHeader">The item header.</param>
+            <param name="behavior">The behavior.</param>
+        </member>
+        <member name="P:Orchestra.Models.RibbonComboBox.ItemsSource">
+            <summary>
+            Gets or sets the items source.
+            </summary>
+            <value>
+            The items source.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonComboBox.SelectedItem">
+            <summary>
+            Gets or sets the selected item.
+            </summary>
+            <value>
+            The selected item.
+            </value>
+        </member>
+        <member name="T:Orchestra.Models.IRibbonContentControl">
+            <summary>
+            Interface for RibbonItem with the ability to show dynamic content
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.IRibbonContentControl.ContentTemplate">
+            <summary>
+            Gets or sets ContentTemplate for the custom content.
+            </summary>
+            <value>The item image.</value>
+        </member>
+        <member name="T:Orchestra.Models.RibbonContentControl">
+            <summary>
+            RibbonItem with the ability to show dynamic content.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Models.RibbonContentControl.#ctor(System.String,System.String,System.String,Orchestra.Models.RibbonBehavior)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Models.RibbonContentControl"/> class.
+            </summary>
+            <param name="tabItemHeader">The tab item header.</param>
+            <param name="groupBoxHeader">The group box header.</param>
+            <param name="itemHeader">The item header.</param>
+            <param name="behavior">The behavior.</param>
+        </member>
+        <member name="P:Orchestra.Models.RibbonContentControl.ContentTemplate">
+            <summary>
+            Gets or sets ContentTemplate for the custom content.
+            </summary>
+            <value>The item image.</value>
+        </member>
+        <member name="T:Orchestra.Models.RibbonGallery">
+            <summary>
+            Represents a ribbon gallery.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Models.RibbonGallery.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Models.RibbonGallery"/> class.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.RibbonGallery.Items">
+            <summary>
+            Gets or sets the items collection.
+            </summary>
+            <value>
+            The items collection.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonGallery.ItemContainerStyle">
+            <summary>
+            Gets or sets the item container style.
+            </summary>
+            <value>
+            The item container style.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonGallery.Orientation">
+            <summary>
+            Gets or sets the orientation of gallery.
+            </summary>
+            <value>
+            The orientation of gallery.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonGallery.Selectable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Orchestra.Models.IRibbonItem"/> is selectable.
+            </summary>
+            <value>
+              <c>true</c> if selectable; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonGallery.ItemWidth">
+            <summary>
+            Gets or sets the width of the item.
+            </summary>
+            <value>
+            The width of the item.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonGallery.ItemHeight">
+            <summary>
+            Gets or sets the height of the item.
+            </summary>
+            <value>
+            The height of the item.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonGallery.MinItemsInRow">
+            <summary>
+            Gets or sets the min items in row.
+            </summary>
+            <value>
+            The min items in row.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonGallery.MaxItemsInRow">
+            <summary>
+            Gets or sets the max items in row.
+            </summary>
+            <value>
+            The max items in row.
+            </value>
+        </member>
+        <member name="T:Orchestra.Models.RibbonItem">
+            <summary>
+            Implementation of the <see cref="T:Orchestra.Models.IRibbonButton"/>.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Models.RibbonItem.#ctor(System.String,System.String,System.String,System.Windows.Input.ICommand,Orchestra.Models.RibbonBehavior)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Models.RibbonItem"/> class.
+            </summary>
+            <param name="tabItemHeader">The tab item header.</param>
+            <param name="groupBoxHeader">The group box header.</param>
+            <param name="itemHeader">The item header.</param>
+            <param name="command">The command.</param>
+            <param name="behavior">The behavior.</param>
+            <exception cref="T:System.ArgumentException">The <paramref name="tabItemHeader"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="groupBoxHeader"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="itemHeader"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="command"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.Models.RibbonItem.#ctor(System.String,System.String,System.String,System.String,Orchestra.Models.RibbonBehavior)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Models.RibbonItem"/> class.
+            </summary>
+            <param name="tabItemHeader">The tab item header.</param>
+            <param name="groupBoxHeader">The group box header.</param>
+            <param name="itemHeader">The item header.</param>
+            <param name="commandName">The name of the command.</param>
+            <param name="behavior">The behavior.</param>
+            <exception cref="T:System.ArgumentException">The <paramref name="tabItemHeader"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="groupBoxHeader"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="itemHeader"/> is <c>null</c> or whitespace.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="commandName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="T:Orchestra.Models.RibbonItemLayout">
+            <summary>
+            Defines a ribbon item layout.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.RibbonItemLayout.Width">
+            <summary>
+            Gets the width of the ribbon item.
+            </summary>
+            <value>
+            The width of the ribbon item.
+            </value>
+        </member>
+        <member name="T:Orchestra.Models.RibbonSplitButton">
+            <summary>
+            Represents a ribbon split button
+            </summary>
+        </member>
+        <member name="M:Orchestra.Models.RibbonSplitButton.#ctor(System.String,System.String,System.String,System.Windows.Input.ICommand,Orchestra.Models.RibbonBehavior)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Models.RibbonSplitButton"/> class.
+            </summary>
+            <param name="tabItemHeader">The tab item header.</param>
+            <param name="groupBoxHeader">The group box header.</param>
+            <param name="itemHeader">The item header.</param>
+            <param name="command">The command.</param>
+            <param name="behavior">The behavior.</param>
+        </member>
+        <member name="M:Orchestra.Models.RibbonSplitButton.#ctor(System.String,System.String,System.String,System.String,Orchestra.Models.RibbonBehavior)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Models.RibbonSplitButton"/> class.
+            </summary>
+            <param name="tabItemHeader">The tab item header.</param>
+            <param name="groupBoxHeader">The group box header.</param>
+            <param name="itemHeader">The item header.</param>
+            <param name="commandName">The name of the command.</param>
+            <param name="behavior">The behavior.</param>
+        </member>
+        <member name="P:Orchestra.Models.RibbonSplitButton.Items">
+            <summary>
+            Gets or sets the gallery items.
+            </summary>
+            <value>
+            The gallery items.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonSplitButton.ItemContainerStyle">
+            <summary>
+            Gets or sets the item container style.
+            </summary>
+            <value>
+            The item container style.
+            </value>
+        </member>
+        <member name="T:Orchestra.Models.RibbonToolTip">
+            <summary>
+            Represents a ribbon tooltip.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Models.RibbonToolTip.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Models.RibbonToolTip"/> class.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Models.RibbonToolTip.Title">
+            <summary>
+            Gets or sets the ribbon tooltip title.
+            </summary>
+            <value>
+            The ribbon tooltip title.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonToolTip.Text">
+            <summary>
+            Gets or sets the ribbon tooltip text.
+            </summary>
+            <value>
+            The ribbon tooltip text.
+            </value>
+        </member>
+        <member name="P:Orchestra.Models.RibbonToolTip.Width">
+            <summary>
+            Gets or sets the ribbon tooltip width.
+            </summary>
+            <value>
+            The ribbon tooltip width.
+            </value>
+        </member>
+        <member name="T:ModuleInitializer">
+            <summary>
+            Used by the ModuleInit. All code inside the Initialize method is ran as soon as the assembly is loaded.
+            </summary>
+        </member>
+        <member name="M:ModuleInitializer.Initialize">
+            <summary>
+            Initializes the module.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Modules.ModuleBase">
+            <summary>
+            Base class for all modules used by Orchestra.
+            </summary>
+        </member>
+        <member name="F:Orchestra.Modules.ModuleBase.HomeRibbonTabName">
+            <summary>
+            The name of the home ribbon tab.
+            </summary>
+        </member>
+        <member name="F:Orchestra.Modules.ModuleBase.ViewRibbonTabName">
+            <summary>
+            The name of the home ribbon tab.
+            </summary>
+        </member>
+        <member name="F:Orchestra.Modules.ModuleBase.ModulesDirectory">
+            <summary>
+            The modules directory name.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.ModuleBase.GetLicenseUrl">
+            <summary>
+            Gets the license URL.
+            <para />
+            If this method returns an empty string, it is assumed the module has no license.
+            </summary>
+            <returns>The url of the license.</returns>
+        </member>
+        <member name="M:Orchestra.Modules.ModuleBase.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Modules.ModuleBase"/> class.
+            </summary>
+            <param name="moduleName">Name of the module.</param>
+            <exception cref="T:System.ArgumentException">The <paramref name="moduleName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.Modules.ModuleBase.InitializeRibbon(Orchestra.Services.IRibbonService)">
+            <summary>
+            Initializes the ribbon.
+            <para />
+            Use this method to hook up views to ribbon items.
+            </summary>
+            <param name="ribbonService">The ribbon service.</param>
+        </member>
+        <member name="T:Orchestra.Services.IOrchestraService">
+            <summary>
+            The orchestra service that allows communication with the shell.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Services.IOrchestraService.ShowDocument``1(System.Object)">
+            <summary>
+            Shows the document in the main shell.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="tag">The tag.</param>
+        </member>
+        <member name="M:Orchestra.Services.IOrchestraService.ShowDocument``1(``0,System.Object,System.Nullable{Orchestra.Models.DockLocation})">
+            <summary>
+            Opens a new document.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="viewModel">The view model.</param>
+            <param name="tag">The tag.</param>
+            <param name="dockLocation">The dock location.</param>
+        </member>
+        <member name="M:Orchestra.Services.IOrchestraService.ShowContextSensitiveDocument``1(System.Object)">
+            <summary>
+            Shows the document in the main shell.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="tag">The tag.</param>
+        </member>
+        <member name="M:Orchestra.Services.IOrchestraService.ShowContextSensitiveDocument``1(``0,System.Object,System.Nullable{Orchestra.Models.DockLocation})">
+            <summary>
+            Shows the document in the main shell.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="viewModel">The view model to show which will automatically be resolved to a view.</param>
+            <param name="tag">The tag.</param>
+            <param name="dockLocation">The dock location.</param>        
+            <exception cref="T:System.ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.Services.IOrchestraService.ShowDocumentIfHidden``1(System.Object)">
+            <summary>
+            Shows the document if it is hidden.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="tag">The tag.</param>
+        </member>
+        <member name="M:Orchestra.Services.IOrchestraService.ShowDocumentInNestedDockView(Catel.MVVM.IViewModel,Orchestra.Views.NestedDockingManager,Orchestra.Models.DockLocation,System.Object)">
+            <summary>
+            Shows the document in nested dock view.
+            </summary>
+            <param name="viewModel">The view model.</param>
+            <param name="dockingManager">The docking manager.</param>
+            <param name="tag">The tag.</param>
+            <param name="dockLocation">The dock location.</param>
+        </member>
+        <member name="M:Orchestra.Services.IOrchestraService.CloseDocument(Catel.MVVM.IViewModel,System.Object)">
+            <summary>
+            Closes the document in the main shell with the specified view model.
+            </summary>
+            <param name="viewModel">The view model.</param>
+            <param name="tag">The tag.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="viewModel"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:Orchestra.Services.IOrchestraService.ShowDebuggingWindow">
+            <summary>
+            Gets or sets a value indicating whether to show the debug window.
+            </summary>
+            <value><c>true</c> if the debug window should be shown; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Orchestra.Services.IRibbonService">
+            <summary>
+            Interface definition of the ribbon service.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Services.IRibbonService.RegisterRibbonItem(Orchestra.Models.IRibbonControl)">
+            <summary>
+            Registers the specified ribbon item to the main ribbon.
+            </summary>
+            <param name="ribbonItem">The ribbon item.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="ribbonItem"/> is <c>null</c>.</exception>
+            <exception cref="T:System.NotSupportedException">The <c>Command</c> property of the <paramref name="ribbonItem"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Orchestra.Services.IRibbonService.RegisterContextualRibbonItem``1(Orchestra.Models.IRibbonControl,System.String)">
+            <summary>
+            Registers the ribbon item bound to a specific view type.
+            </summary>
+            <typeparam name="TView">The type of the T view.</typeparam>
+            <param name="ribbonItem">The ribbon item.</param>
+            <param name="contextualTabGroupName">The contextual tab group name.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="ribbonItem"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="contextualTabGroupName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="M:Orchestra.Services.IRibbonService.RegisterContextualRibbonItem(System.Type,Orchestra.Models.IRibbonControl,System.String)">
+            <summary>
+            Registers the ribbon item bound to a specific view type.
+            </summary>
+            <param name="viewType">Type of the view.</param>
+            <param name="ribbonItem">The ribbon item.</param>
+            <param name="contextualTabGroupName">The contextual tab group name.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="viewType"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="ribbonItem"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="contextualTabGroupName"/> is <c>null</c> or whitespace.</exception>
+        </member>
+        <member name="T:Orchestra.Services.IStatusBarService">
+            <summary>
+            Class to modify the status bar.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Services.IStatusBarService.UpdateStatus(System.String)">
+            <summary>
+            Updates the status.
+            </summary>
+            <param name="status">The status.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="status"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Orchestra.Services.ServiceBase">
+            <summary>
+            Base class for all services in Orchestra.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Services.ServiceBase.GetService(System.Type)">
+            <summary>
+            Gets the service object of the specified type.
+            </summary>
+            <param name="serviceType">An object that specifies the type of service object to get.</param>
+            <returns>A service object of type <paramref name="serviceType"/>.-or- null if there is no service object of type <paramref name="serviceType"/>.</returns>
+        </member>
+        <member name="M:Orchestra.Services.ServiceBase.GetService``1">
+            <summary>
+            Gets the service object of the specified type.
+            </summary>
+            <typeparam name="T">Type of the service.</typeparam>
+            <returns>The service instance.</returns>
+        </member>
+        <member name="T:Orchestra.ContextualViewModelManager">
+            <summary>
+            The ContextualViewModelManager manages views and there context sensitive views.
+            </summary>
+        </member>
+        <member name="T:Orchestra.IContextualViewModelManager">
+            <summary>
+            The ContextualViewModelManager manages views and there contextual views
+            </summary>
+        </member>
+        <member name="M:Orchestra.IContextualViewModelManager.IsContextDependentViewModel(Catel.MVVM.IViewModel)">
+            <summary>
+            Gets a value indicating whether this instance is contextual view model.
+            </summary>
+            <value>
+            <c>true</c> if this instance is contextual view model; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Orchestra.IContextualViewModelManager.IsNestedDockview(Catel.MVVM.IViewModel)">
+            <summary>
+            Determines whether type of the ViewModel belongs to a nested dock view.
+            </summary>
+            <param name="viewModel">The IViewModel.</param>
+            <returns>
+              <c>true</c> if the type of the ViewModel belongs to a nested dock view; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Orchestra.IContextualViewModelManager.HasContextualRelationShip(Catel.MVVM.IViewModel,Catel.MVVM.IViewModel)">
+            <summary>
+            Determines whether this view model has a contextual relation ship with the specified view model.
+            </summary>
+            <param name="viewModel">The view model.</param>
+            <param name="contextualViewModel">The contetxtual view model.</param>
+            <returns>
+              <c>true</c> if a contextual relation ship exists with the specified view model]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Orchestra.IContextualViewModelManager.RegisterNestedDockView``1">
+            <summary>
+            Registers the nested dock view.
+            </summary>
+        </member>
+        <member name="M:Orchestra.IContextualViewModelManager.RegisterOpenDocumentView(Orchestra.Views.IDocumentView)">
+            <summary>
+            Registers the <see cref="T:Orchestra.Views.DocumentView"/>.
+            Now that it is known in the IContextualViewModelManager, the visibility can be made contextsensitive.
+            </summary>
+            <param name="documentView">The document view.</param>
+        </member>
+        <member name="M:Orchestra.IContextualViewModelManager.RegisterContextualView``2(System.String,Orchestra.Models.DockLocation)">
+            <summary>
+            Registers the context sensitive parent view.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <typeparam name="TContextSensitiveViewModel">The type of the context sensitive view model.</typeparam>
+            <param name="title">The title.</param>
+            <param name="dockLocation">The dock location.</param>
+        </member>
+        <member name="M:Orchestra.IContextualViewModelManager.UnregisterDocumentView(Orchestra.Views.IDocumentView)">
+            <summary>
+            Unregisters the contextual document view.
+            </summary>
+            <param name="documentView">The document view.</param>
+        </member>
+        <member name="M:Orchestra.IContextualViewModelManager.AddContextSensitiveViewsToNestedDockView(Catel.MVVM.IViewModel,Orchestra.Views.NestedDockingManager)">
+            <summary>
+            Adds the context sensitive views to nested dock view.
+            </summary>
+            <param name="viewModel">The view model.</param>
+            <param name="nestedDockingManager">The nested docking manager.</param>
+        </member>
+        <member name="M:Orchestra.IContextualViewModelManager.GetViewModelForContextSensitiveView``1">
+            <summary>
+            Gets the view model for context sensitive view.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Orchestra.IContextualViewModelManager.UpdateContextualViews(Orchestra.Views.DocumentView)">
+            <summary>
+            Updates the contextual views.
+            </summary>
+            <param name="documentView">The document view.</param>
+        </member>
+        <member name="F:Orchestra.ContextualViewModelManager._contextualViewModelCollection">
+            <summary>
+            The _contextual view models
+            A view (context) has one or more views related to this context 
+            </summary>
+        </member>
+        <member name="F:Orchestra.ContextualViewModelManager._nestedDockViewModelTypes">
+            <summary>
+            The _nested dock view model types
+            </summary>
+        </member>
+        <member name="F:Orchestra.ContextualViewModelManager.Log">
+            <summary>
+            The log
+            </summary>
+        </member>
+        <member name="F:Orchestra.ContextualViewModelManager._openContextSensitiveViews">
+            <summary>
+            The collection of context sensitive views that are opened.
+            </summary>
+        </member>
+        <member name="F:Orchestra.ContextualViewModelManager._openDocumentViewsCollection">
+            <summary>
+            The collection of documents that are opened in Orchestra, we need this collection to find relationships between views when the ActivatedView changes.
+            </summary>
+        </member>
+        <member name="F:Orchestra.ContextualViewModelManager._orchestraService">
+            <summary>
+            The <see cref="T:Orchestra.Services.IOrchestraService">orchestra service</see>.
+            </summary>
+        </member>
+        <member name="F:Orchestra.ContextualViewModelManager._viewModelFactory">
+            <summary>
+            The <see cref="T:Catel.MVVM.IViewModelFactory">ViewModel factory</see>.
+            </summary>
+        </member>
+        <member name="M:Orchestra.ContextualViewModelManager.#ctor(Orchestra.Services.IOrchestraService,Catel.MVVM.IViewModelFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.ContextualViewModelManager"/> class.
+            </summary>
+            <param name="orchestraService">The <see cref="T:Orchestra.Services.IOrchestraService">orchestra service</see>.</param>
+            <param name="viewModelFactory">The <see cref="T:Catel.MVVM.IViewModelFactory">orchestra service</see>..</param>
+        </member>
+        <member name="M:Orchestra.ContextualViewModelManager.RegisterNestedDockView``1">
+            <summary>
+            Registers the nested dock view.
+            </summary>
+        </member>
+        <member name="M:Orchestra.ContextualViewModelManager.IsNestedDockview(Catel.MVVM.IViewModel)">
+            <summary>
+            Determines whether type of the ViewModel belongs to a nested dock view.
+            </summary>
+            <param name="viewModel">The IViewModel.</param>
+            <returns>
+              <c>true</c> if the type of the ViewModel belongs to a nested dock view; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Orchestra.ContextualViewModelManager.RegisterContextualView``2(System.String,Orchestra.Models.DockLocation)">
+            <summary>
+            Registers 'contextual' view type, with the type of views that are context sensitive to this view.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <typeparam name="TContextSensitiveViewModel">The type of the context sensitive view model.</typeparam>
+            <param name="title">The title.</param>
+            <param name="dockLocation">The dock location.</param>
+        </member>
+        <member name="M:Orchestra.ContextualViewModelManager.RegisterOpenDocumentView(Orchestra.Views.IDocumentView)">
+            <summary>
+            Registers the <see cref="T:Orchestra.Views.DocumentView"/>.
+            Now that it is known in the IContextualViewModelManager, the visibility of the context sensitive views can be managed.
+            </summary>
+            <param name="documentView">The document view.</param>
+        </member>
+        <member name="M:Orchestra.ContextualViewModelManager.UnregisterDocumentView(Orchestra.Views.IDocumentView)">
+            <summary>
+            Unregisters the contextual document view.
+            </summary>
+            <param name="documentView">The document view.</param>
+        </member>
+        <member name="M:Orchestra.ContextualViewModelManager.AddContextSensitiveViewsToNestedDockView(Catel.MVVM.IViewModel,Orchestra.Views.NestedDockingManager)">
+            <summary>
+            Adds the context ensitive views to nested dock view.
+            </summary>
+            <param name="viewModel">The view model.</param>
+            <param name="nestedDockingManager">The nested docking manager.</param>
+        </member>
+        <member name="M:Orchestra.ContextualViewModelManager.HasContextSensitiveViewAssociated(Orchestra.Views.IDocumentView)">
+            <summary>
+            Determines whether this view has context sensitive views associated.
+            </summary>
+            <param name="documentView">The document view.</param>
+            <returns>
+              <c>true</c> if the view has context sensitive view(s) associated, otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Orchestra.ContextualViewModelManager.IsContextDependentViewModel(Catel.MVVM.IViewModel)">
+            <summary>
+            Determines whether [is context dependent view model] [the specified view model].
+            </summary>
+            <param name="viewModel">The view model.</param>
+            <returns>
+              <c>true</c> if [is context dependent view model] [the specified view model]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Orchestra.ContextualViewModelManager.HasContextualRelationShip(Catel.MVVM.IViewModel,Catel.MVVM.IViewModel)">
+            <summary>
+            Determines whether the viewModel has a contextual relation ship with the contextual view model.
+            </summary>
+            <param name="contextSensitiveviewModel">The context sensitiveview model.</param>
+            <param name="contextualViewModel">The contetxtual view model.</param>
+            <returns>
+              <c>true</c> if [has contextual relation ship] [the specified view model]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Orchestra.ContextualViewModelManager.GetViewModelForContextSensitiveView``1">
+            <summary>
+            Gets the view model for context sensitive view.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Orchestra.ContextualViewModelManager.UpdateContextualViews(Orchestra.Views.DocumentView)">
+            <summary>
+            Updates the contextual views.
+            </summary>
+            <param name="activatedView">The activated view.</param>
+        </member>
+        <member name="T:Orchestra.ViewModels.ViewModelBase">
+            <summary>
+            Base class for all view models in Orchestra. Additional functionality might be introduced in the future.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Views.DocumentView">
+            <summary>
+            Base class for all views that should be used as documents in Orchestra.
+            <para />
+            A developer is not forced to use this base class, but it is strongly recommended.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Views.IDocumentView">
+            <summary>
+            Interface defining a document view.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.IDocumentView.CloseDocument">
+            <summary>
+            Closes the document.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.DocumentView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Views.DocumentView"/> class. 
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.DocumentView.CloseDocument">
+            <summary>
+            Closes the document.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Views.IDockingManagerContainer">
+            <summary>
+            Docking manager container.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.IDockingManagerContainer.AddContentDocument(Xceed.Wpf.AvalonDock.Layout.LayoutAnchorable)">
+            <summary>
+            Adds the main document for the NestedDockingManager.
+            </summary>
+            <param name="documentView">The document view.</param>
+            <exception cref="T:System.Exception">NestedDockingManager can only have one main document with the main content.</exception>
+        </member>
+        <member name="M:Orchestra.Views.IDockingManagerContainer.AddDockedWindow(Xceed.Wpf.AvalonDock.Layout.LayoutAnchorable,Orchestra.Models.DockLocation)">
+            <summary>
+            Adds the document as a tab to the NestedDocking view.
+            </summary>
+            <param name="documentView">The document view.</param>
+            <param name="dockLocation">The dock location.</param>
+        </member>
+        <member name="P:Orchestra.Views.IDockingManagerContainer.DockingManager">
+            <summary>
+            Gets the <see cref="P:Orchestra.Views.IDockingManagerContainer.DockingManager"/>.
+            </summary>
+            <value>
+            The <see cref="P:Orchestra.Views.IDockingManagerContainer.DockingManager"/>.
+            </value>
+        </member>
+        <member name="P:Orchestra.Views.IDockingManagerContainer.IsActive">
+            <summary>
+            Gets a value indicating whether this instance is active.
+            </summary>
+            <value>
+              <c>true</c> if this instance is active; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Orchestra.Views.IDockingManagerContainer.ContentDocument">
+            <summary>
+            Gets the content document.
+            </summary>
+            <value>
+            The content document.
+            </value>
+        </member>
+        <member name="T:Orchestra.Views.NestedDockingManager">
+            <summary>
+            Interaction logic for NestedDockingManager.xaml
+            </summary>
+            <summary>
+            NestedDockingManager
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.NestedDockingManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Views.NestedDockingManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Views.NestedDockingManager.AddContentDocument(Xceed.Wpf.AvalonDock.Layout.LayoutAnchorable)">
+            <summary>
+            Adds the main document for the NestedDockingManager.
+            </summary>
+            <param name="documentView">The document view.</param>
+            <exception cref="T:System.Exception">NestedDockingManager can only have one main document with the main content.</exception>
+        </member>
+        <member name="M:Orchestra.Views.NestedDockingManager.AddDockedWindow(Xceed.Wpf.AvalonDock.Layout.LayoutAnchorable,Orchestra.Models.DockLocation)">
+            <summary>
+            Adds the document as a tab to the NestedDocking view.
+            </summary>
+            <param name="documentView">The document view.</param>
+            <param name="dockLocation">The dock location.</param>
+        </member>
+        <member name="M:Orchestra.Views.NestedDockingManager.NestedDockingManagerLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the Loaded event of the NestedDockingManager control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Orchestra.Views.NestedDockingManager.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Orchestra.Views.NestedDockingManager.DockingManager">
+            <summary>
+            Gets the <see cref="P:Orchestra.Views.NestedDockingManager.DockingManager"/>.
+            </summary>
+            <value>
+            The <see cref="P:Orchestra.Views.NestedDockingManager.DockingManager"/>.
+            </value>
+        </member>
+        <member name="P:Orchestra.Views.NestedDockingManager.IsActive">
+            <summary>
+            Gets a value indicating whether this instance is active.
+            </summary>
+            <value>
+              <c>true</c> if this instance is active; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Orchestra.Views.NestedDockingManager.ContentDocument">
+            <summary>
+            Gets the content document.
+            </summary>
+            <value>
+            The content document.
+            </value>
+        </member>
+    </members>
+</doc>

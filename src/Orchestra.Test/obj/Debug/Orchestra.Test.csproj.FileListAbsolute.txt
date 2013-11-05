@@ -1,0 +1,6 @@
+F:\Έγγραφα\Git\Orchestra\output\debug\NET40\Test\Orchestra.Test.dll.config
+F:\Έγγραφα\Git\Orchestra\output\debug\NET40\Test\Orchestra.Test.dll
+F:\Έγγραφα\Git\Orchestra\output\debug\NET40\Test\Orchestra.Test.pdb
+F:\Έγγραφα\Git\Orchestra\src\Orchestra.Test\obj\Debug\Orchestra.Test.csprojResolveAssemblyReference.cache
+F:\Έγγραφα\Git\Orchestra\src\Orchestra.Test\obj\Debug\Orchestra.Test.dll
+F:\Έγγραφα\Git\Orchestra\src\Orchestra.Test\obj\Debug\Orchestra.Test.pdb

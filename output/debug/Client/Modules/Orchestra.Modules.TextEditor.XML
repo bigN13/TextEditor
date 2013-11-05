@@ -1,0 +1,472 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orchestra.Modules.TextEditor</name>
+    </assembly>
+    <members>
+        <member name="T:Orchestra.Modules.TextEditorModule.TextEditorModule">
+            <summary>
+            Browser module.
+            </summary>
+        </member>
+        <member name="F:Orchestra.Modules.TextEditorModule.TextEditorModule.Name">
+            <summary>
+            The module name.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.TextEditorModule.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Modules.TextEditorModule.TextEditorModule"/> class. 
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.TextEditorModule.OnInitialized">
+            <summary>
+            Called when the module has been initialized.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.TextEditorModule.InitializeRibbon(Orchestra.Services.IRibbonService)">
+            <summary>
+            Initializes the ribbon.
+            <para />
+            Use this method to hook up views to ribbon items.
+            </summary>
+            <param name="ribbonService">The ribbon service.</param>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.TextEditorModule.NewDocumentCommandCanExecute">
+            <summary>
+            Method to check whether the New command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.TextEditorModule.NewDocumentCommandExecute">
+            <summary>
+            Method to invoke when the New command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.TextEditorModule.OpenDocumentCommandCanExecute">
+            <summary>
+            Method to check whether the New command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.TextEditorModule.OpenDocumentCommandExecute">
+            <summary>
+            Method to invoke when the New command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.TextEditorModule.Open(System.String)">
+            <summary>
+            Open File Window
+            </summary>
+            <param name="filepath"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.TextEditorModule.Files">
+            <summary>
+            Collection of all files
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.TextEditorModule.NewDocumentCommand">
+            <summary>
+            Command - Create new Document
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.TextEditorModule.OpenDocumentCommand">
+            <summary>
+            Command - Open Existent Document
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.TextEditorModule.ActiveDocument">
+            <summary>
+            Set Active Document
+            </summary>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel">
+            <summary>
+            UserControl view model.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.#ctor(System.String,Orchestra.Modules.TextEditorModule.TextEditorModule,Catel.MVVM.Services.IMessageService,Orchestra.Services.IOrchestraService,Catel.Messaging.IMessageMediator,Orchestra.IContextualViewModelManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel"/> class.
+            </summary>
+            <param name="title">The title.</param>
+            <param name="messageService">The message service.</param>
+            <param name="orchestraService">The orchestra service.</param>
+            <param name="messageMediator">The message mediator.</param>
+            <param name="contextualViewModelManager">The contextual view model manager.</param>
+            <param name="textEditorModule">The Main Module Class.</param>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.#ctor(Orchestra.Modules.TextEditorModule.TextEditorModule,Catel.MVVM.Services.IMessageService,Orchestra.Services.IOrchestraService,Catel.Messaging.IMessageMediator,Orchestra.IContextualViewModelManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel"/> class.
+            </summary>
+            <param name="messageService">The message service.</param>
+            <param name="orchestraService">The orchestra service.</param>
+            <param name="messageMediator">The message mediator.</param>
+            <param name="contextualViewModelManager">The contextual view model manager.</param>
+            <param name="textEditorModule">The Main Module Class.</param>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnShowLineNumbersCommandCanExecute">
+            <summary>
+            Method to check whether the ShowLineNumbers command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnShowLineNumbersCommandExecute">
+            <summary>
+            Method to invoke when the ShowLineNumbers command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnWordWrapCommandCanExecute">
+            <summary>
+            Method to check whether the WordWrap command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnWordWrapCommandExecute">
+            <summary>
+            Method to invoke when the WordWrap command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnEndLineCommandCanExecute">
+            <summary>
+            Method to check whether the EndLineCommand command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnEndLineCommandExecute">
+            <summary>
+            Method to invoke when the EndLineCommand command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnShowSpacesCommandCanExecute">
+            <summary>
+            Method to check whether the EndLineCommand command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnShowSpacesCommandExecute">
+            <summary>
+            Method to invoke when the EndLineCommand command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnShowTabCommandCanExecute">
+            <summary>
+            Method to check whether the EndLineCommand command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnShowTabCommandExecute">
+            <summary>
+            Method to invoke when the EndLineCommand command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnCloseCommandCanExecute">
+            <summary>
+            Method to check whether the Browse command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnCloseCommandExecute">
+            <summary>
+            Method to invoke when the Browse command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnSaveCommandCanExecute">
+            <summary>
+            Method to check whether the Browse command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnSaveCommandExecute">
+            <summary>
+            Method to invoke when the Browse command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnSaveAsCommandCanExecute">
+            <summary>
+            Method to check whether the Browse command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnSaveAsCommandExecute">
+            <summary>
+            Method to invoke when the Browse command is executed.
+            </summary>
+        </member>
+        <member name="F:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.UrlProperty">
+            <summary>
+            Url property data.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnUrlChanged(Catel.Data.AdvancedPropertyChangedEventArgs)">
+            <summary>
+            Called when the Url has changed.
+            </summary>
+            <param name="e">The <see cref="T:Catel.Data.AdvancedPropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="F:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.SelectedSiteProperty">
+            <summary>
+            SelectedSite property data.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnSelectedSiteChanged(System.Object,Catel.Data.AdvancedPropertyChangedEventArgs)">
+            <summary>
+            Called when the SelectedSite value changed.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:Catel.Data.AdvancedPropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnGoBackCanExecute">
+            <summary>
+            Method to check whether the GoBack command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnGoBackExecute">
+            <summary>
+            Method to invoke when the GoBack command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnGoForwardCanExecute">
+            <summary>
+            Method to check whether the GoForward command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnGoForwardExecute">
+            <summary>
+            Method to invoke when the GoForward command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnBrowseCanExecute">
+            <summary>
+            Method to check whether the Browse command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnBrowseExecute">
+            <summary>
+            Method to invoke when the Browse command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnCloseBrowserExecute">
+            <summary>
+            Method to invoke when the CloseBrowser command is executed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.ViewModelActivated">
+            <summary>
+            Method is called when the active view changes within the orchestra application
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.UpdateContextSensitiveData">
+            <summary>
+            Update the context sensitive data, related to this view.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.FilePath">
+            <summary>
+            TextEditor Setup FilePath
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.FileName">
+            <summary>
+            TextEditor - Specify the Name of Sheet
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.Document">
+            <summary>
+            TextEditr New Document creation
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.HighlightDef">
+            <summary>
+            TextEditor Highligt Option
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.WordWrap">
+            <summary>
+            TextEditor Word Wrap Option
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.ShowLineNumbers">
+            <summary>
+            TextEditor Show Line Numbee Option
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.TextOptions">
+            <summary>
+            TextEditor TextOptions
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.ContentId">
+            <summary>
+            TextEditorContentId
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.ShowLineNumbersCommand">
+            <summary>
+            Gets the ShowLineNumbers command.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.WordWrapCommand">
+            <summary>
+            Gets the WordWrap command.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.EndLineCommand">
+            <summary>
+            Gets the EndLine command.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.ShowSpacesCommand">
+            <summary>
+            Gets the EndLine command.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.ShowTabCommand">
+            <summary>
+            Gets the EndLine command.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.CloseCommand">
+            <summary>
+            Gets the Close command.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.SaveCommand">
+            <summary>
+            Gets the Close command.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.SaveAsCommand">
+            <summary>
+            Gets the Close command.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.Url">
+            <summary>
+            Gets or sets the URL.
+            </summary>
+            <value>The URL.</value>        
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.UrlChangedMessageTag">
+            <summary>
+            Gets the name of the URL changed message.
+            </summary>
+            <value>The name of the URL changed message.</value>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.RecentSites">
+            <summary>
+            Gets the recent sites.
+            </summary>
+            <value>
+            The recent sites.
+            </value>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.SelectedSite">
+            <summary>
+            Gets or sets the SelectedSite value.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.Test">
+            <summary>
+            Gets the test command.
+            </summary>
+            <value>
+            The test.
+            </value>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.GoBack">
+            <summary>
+            Gets the GoBack command.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.GoForward">
+            <summary>
+            Gets the GoForward command.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.Browse">
+            <summary>
+            Gets the Browse command.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.CloseBrowser">
+            <summary>
+            Gets the CloseBrowser command.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel">
+            <summary>
+            Backing ViewModel for the PropertiesView
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel"/> class.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel"/> class.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.Url">
+            <summary>
+            Gets or sets the URL.
+            </summary>
+            <value>
+            The URL.
+            </value>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.MethodSignatureCollection">
+            <summary>
+            Gets or sets the MethodSignatureCollection
+            </summary>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.Views.TextEditorView">
+            <summary>
+            Interaction logic for BrowserView.xaml.
+            </summary>
+            <summary>
+            TextEditorView
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Views.TextEditorView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Modules.TextEditorModule.Views.TextEditorView"/> class.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Views.TextEditorView.OnViewModelChanged">
+            <summary>
+            Called when the view model has changed.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Views.TextEditorView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.Views.PropertiesView">
+            <summary>
+            Interaction logic for PropertiesView.xaml.
+            </summary>
+            <summary>
+            PropertiesView
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Views.PropertiesView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Modules.TextEditorModule.Views.PropertiesView"/> class.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Views.PropertiesView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

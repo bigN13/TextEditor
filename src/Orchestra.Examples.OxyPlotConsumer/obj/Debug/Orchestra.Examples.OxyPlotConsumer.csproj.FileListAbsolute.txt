@@ -1,0 +1,7 @@
+F:\Έγγραφα\Git\Orchestra\src\Orchestra.Examples.OxyPlotConsumer\obj\Debug\Orchestra.Examples.OxyPlotConsumer.csprojResolveAssemblyReference.cache
+F:\Έγγραφα\Git\Orchestra\output\debug\Examples\Orchestra.Examples.OxyPlotConsumer.exe.config
+F:\Έγγραφα\Git\Orchestra\output\debug\Examples\Orchestra.Examples.OxyPlotConsumer.XML
+F:\Έγγραφα\Git\Orchestra\output\debug\Examples\Orchestra.Examples.OxyPlotConsumer.exe
+F:\Έγγραφα\Git\Orchestra\output\debug\Examples\Orchestra.Examples.OxyPlotConsumer.pdb
+F:\Έγγραφα\Git\Orchestra\src\Orchestra.Examples.OxyPlotConsumer\obj\Debug\Orchestra.Examples.OxyPlotConsumer.exe
+F:\Έγγραφα\Git\Orchestra\src\Orchestra.Examples.OxyPlotConsumer\obj\Debug\Orchestra.Examples.OxyPlotConsumer.pdb

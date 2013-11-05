@@ -1,0 +1,24 @@
+\\Dine-pc\έγγραφα\Git\Orchestra\src\TableView\bin\Debug\TableView.dll
+\\Dine-pc\έγγραφα\Git\Orchestra\src\TableView\bin\Debug\TableView.pdb
+\\Dine-pc\έγγραφα\Git\Orchestra\src\TableView\obj\Debug\TableView.csprojResolveAssemblyReference.cache
+\\Dine-pc\έγγραφα\Git\Orchestra\src\TableView\obj\Debug\GeneratedInternalTypeHelper.g.cs
+\\Dine-pc\έγγραφα\Git\Orchestra\src\TableView\obj\Debug\TableView_MarkupCompile.cache
+\\Dine-pc\έγγραφα\Git\Orchestra\src\TableView\obj\Debug\TableView_MarkupCompile.lref
+\\Dine-pc\έγγραφα\Git\Orchestra\src\TableView\obj\Debug\Themes\Generic.baml
+\\Dine-pc\έγγραφα\Git\Orchestra\src\TableView\obj\Debug\TableView.g.resources
+\\Dine-pc\έγγραφα\Git\Orchestra\src\TableView\obj\Debug\TableView.Properties.Resources.resources
+\\Dine-pc\έγγραφα\Git\Orchestra\src\TableView\obj\Debug\TableView.csproj.GenerateResource.Cache
+\\Dine-pc\έγγραφα\Git\Orchestra\src\TableView\obj\Debug\TableView.dll
+\\Dine-pc\έγγραφα\Git\Orchestra\src\TableView\obj\Debug\TableView.pdb
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\TableView\bin\Debug\TableView.dll
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\TableView\bin\Debug\TableView.pdb
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\TableView\obj\Debug\TableView.csprojResolveAssemblyReference.cache
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\TableView\obj\Debug\GeneratedInternalTypeHelper.g.cs
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\TableView\obj\Debug\TableView_MarkupCompile.cache
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\TableView\obj\Debug\TableView_MarkupCompile.lref
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\TableView\obj\Debug\Themes\Generic.baml
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\TableView\obj\Debug\TableView.g.resources
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\TableView\obj\Debug\TableView.Properties.Resources.resources
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\TableView\obj\Debug\TableView.csproj.GenerateResource.Cache
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\TableView\obj\Debug\TableView.dll
+K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra\src\TableView\obj\Debug\TableView.pdb
