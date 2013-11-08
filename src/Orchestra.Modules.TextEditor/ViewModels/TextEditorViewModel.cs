@@ -125,6 +125,19 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
             CloseBrowser = new Command(OnCloseBrowserExecute);
             this.Title = FileName; 
             #endregion
+
+
+            #region Mediators
+            //var messageMediator = ServiceLocator.Default.ResolveType<IMessageMediator>();
+            messageMediator.Register<string>(this, OnBrowse, "selectedItem");
+            #endregion
+        }
+
+        private void OnBrowse(string SelectedItem)
+        {
+            MessageBox.Show(SelectedItem);
+            //Match m = (Match)SelectedItem;
+            //webBrowser.Navigate(url, null, null, string.Format("User-Agent: {0}", UserAgent));
         }
 
         private void OnTestExecute()
@@ -789,26 +802,58 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
             }
         }
 
-        List<string> methodsCollection = new List<string>();
+        List<string> methodsCollection;
 
         private void MethodsCollection()
         {
-            //string regextPattern = @"@Q(?:[^Q]+|QQ)*Q|Q(?:[^Q\\]+|\\.)*Q".Replace('Q', '\"');
-            string regextPattern = @"((private)|(public)|(sealed)|(protected)|(virtual)|(internal))+([a-z]|[A-Z]|[0-9]|[\s])*([\()([a-z]|[A-Z]|[0-9]|[\s])*([\)|\{]+)";
+            methodsCollection = new List<string>();
 
-            string[] MethodSignatureCollection = Regex.Split(this._document.Text, regextPattern);
+            Regex r = null;
+            Match m;
+            RegexOptions TheOptions = RegexOptions.None;
+            TheOptions |= RegexOptions.IgnoreCase;
+            TheOptions |= RegexOptions.Multiline;
+            TheOptions |= RegexOptions.IgnorePatternWhitespace;
+            //string regextPattern = @"@Q(?:[^Q]+|QQ)*Q|Q(?:[^Q\\]+|\\.)*Q".Replace('Q', '\"');
+
+            //Finds all strings
+            //string regextPattern = @"((private)|(public)|(sealed)|(protected)|(virtual)|(internal))+([a-z]|[A-Z]|[0-9]|[\s])*([\()([a-z]|[A-Z]|[0-9]|[\s])*([\)|\{]+)";
+            
+            //Finds All Methods
+            //string regextPattern = @"((private)|(public)|(sealed)|(protected)|(virtual)|(internal))+([a-z]|[A-Z]|[0-9]|[\s])*([\()([a-z]|[A-Z]|[0-9]|[\s])*([\)|\(]+)";
+            //string regextPattern2 = @"\s+|(<<|>>|\+\+|--|==|\!=|>=|<=|\{|\}|\[|\]|\(|\)|\.|,|:|;|\+|-|\*|/|%|&|\||\^|!|~|=|\<|\>|\?)";
+            //string regextPattern2 = @"^(?=.*?\b(private|public|sealed)\b)(?=.*?\b(\b)(?=.*?\b)\b).*$";
+            string regextPattern2 = @"^.*\b(private|public|sealed|protected|virtual|internal)\b.*$";
+
+            try
+            {
+                r = new Regex(regextPattern2,TheOptions);           
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an error in the regular expression!\n\n"
+                    + ex.Message + "\n", "Expresso Error");
+            }
+
+
+            //m = Regex.Match(this._document.Text, regextPattern2);
 
 
             //string regextPattern = @"((private)|(public)|(sealed)|(protected)|(virtual)|(internal))+([a-z]|[A-Z]|[0-9]|[\s])*([\()([a-z]|[A-Z]|[0-9]|[\s])*([\)|\{]+)";
 
             //MatchCollection MethodSignatureCollection = Regex.Match(this._document.Text, regextPattern);
 
-            foreach (var item in MethodSignatureCollection)
-                methodsCollection.Add(item.ToString());
+            for (m = r.Match(this._document.Text); m.Success; m = m.NextMatch())
+            {
+                if (m.Value.Length>0)
+                {
+                    methodsCollection.Add(m.ToString());
+                }
+            }
 
-        }
+            //foreach (var item in MethodSignatureCollection)
+            //    methodsCollection.Add(item.ToString());
 
-
-
+        } 
     }
 }

@@ -4,7 +4,7 @@
 library
 C#
 .cs
-K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra.Library.NET40\obj\Debug\
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra.Library.NET40\obj\Debug\
 Orchestra
 none
 false
@@ -13,7 +13,7 @@ TRACE;DEBUG;NET40
 1-2020175493
 
 411381359393
-281917185593
+281501474451
 Views\NestedDockingManager.xaml;
 
 False

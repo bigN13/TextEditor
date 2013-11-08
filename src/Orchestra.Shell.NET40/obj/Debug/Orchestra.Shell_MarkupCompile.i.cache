@@ -4,7 +4,7 @@
 library
 C#
 .cs
-K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra.Shell.NET40\obj\Debug\
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra.Shell.NET40\obj\Debug\
 Orchestra
 none
 false
@@ -13,7 +13,7 @@ TRACE;DEBUG;NET40
 3938586354
 
 20389586408
-29462113573
+291005581809
 Views\AboutView.xaml;Views\MainWindow.xaml;Views\SplashScreen.xaml;
 
 False

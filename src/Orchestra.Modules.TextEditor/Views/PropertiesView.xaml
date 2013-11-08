@@ -3,17 +3,30 @@
                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                         xmlns:catel="http://catel.codeplex.com"
                         xmlns:orchestra="http://orchestra.codeplex.com"
+                        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                         >
+    
     <!-- Content -->
     <catel:StackGrid>
-        <StackPanel>
+        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <TextBlock Text="Url" />
             <TextBlock Text="{Binding Url}" />
             <TextBlock Text="Regex Pattern" />
             <TextBox />
             <TextBlock Text="Document Map" />
-            <ListView ItemsSource="{Binding MethodSignatureCollection}">
-                
+            <ListView Name="PresetList"  
+                      ItemsSource="{Binding MethodSignatureCollection}" 
+                      SelectedItem="{Binding SelectectedDocumentItem}"
+                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <catel:EventToCommand 
+                    Command="{Binding Path=DataContext.DocMapSelectedCommand, 
+                                        RelativeSource={RelativeSource FindAncestor, AncestorType=catel:UserControl, AncestorLevel=1}}" 
+                        CommandParameter="{Binding Path=SelectedItem, ElementName=PresetList}" 
+                        DisableAssociatedObjectOnCannotExecute="False" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
             </ListView>
 
         </StackPanel>

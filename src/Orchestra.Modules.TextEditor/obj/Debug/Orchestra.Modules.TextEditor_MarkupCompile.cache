@@ -4,7 +4,7 @@
 library
 C#
 .cs
-K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra.Modules.TextEditor\obj\Debug\
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra.Modules.TextEditor\obj\Debug\
 Orchestra.Modules.TextEditor
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 347106223
 
 7696602660
-25848872710
+25-1531378303
 ResourceDictionary.xaml;Views\TextEditorView.xaml;Views\PropertiesView.xaml;
 
 False

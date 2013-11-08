@@ -12,6 +12,7 @@ namespace Orchestra.Modules.TextEditorModule.Views
     using Catel.Messaging;
     using Orchestra.Modules.TextEditorModule.ViewModels;
     using Orchestra.Views;
+    using Catel.MVVM;
 
     /// <summary>
     /// Interaction logic for BrowserView.xaml.

@@ -404,14 +404,30 @@
             Backing ViewModel for the PropertiesView
             </summary>
         </member>
-        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.#ctor(System.String)">
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.#ctor(System.String,Catel.MVVM.Services.IMessageService,Orchestra.Services.IOrchestraService,Catel.Messaging.IMessageMediator,Orchestra.IContextualViewModelManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel"/> class.
+            </summary>
+            <param name="title">The title.</param>
+            <param name="messageService">The message service.</param>
+            <param name="orchestraService">The orchestra service.</param>
+            <param name="messageMediator">The message mediator.</param>
+            <param name="contextualViewModelManager">The contextual view model manager.</param>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.#ctor(Catel.MVVM.Services.IMessageService,Orchestra.Services.IOrchestraService,Catel.Messaging.IMessageMediator,Orchestra.IContextualViewModelManager)">
             <summary>
             Initializes a new instance of the <see cref="T:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel"/> class.
             </summary>
         </member>
-        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.#ctor">
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.OnDocMapSelectedCommandCanExecute">
             <summary>
-            Initializes a new instance of the <see cref="T:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel"/> class.
+            Method to check whether the ShowLineNumbers command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.OnDocMapSelectedCommandExecute">
+            <summary>
+            Method to invoke when the ShowLineNumbers command is executed.
             </summary>
         </member>
         <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.Url">
@@ -425,6 +441,16 @@
         <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.MethodSignatureCollection">
             <summary>
             Gets or sets the MethodSignatureCollection
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.SelectectedDocumentItem">
+            <summary>
+            Gets or sets the MethodSignatureCollection
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.DocMapSelectedCommand">
+            <summary>
+            Gets the ShowLineNumbers command.
             </summary>
         </member>
         <member name="T:Orchestra.Modules.TextEditorModule.Views.TextEditorView">
