@@ -8,15 +8,17 @@
     
     <!-- Content -->
     <catel:StackGrid>
-        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <catel:StackGrid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </catel:StackGrid.RowDefinitions>
+        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0">
             <TextBlock Text="Url" />
             <TextBlock Text="{Binding Url}" />
-            <TextBlock Text="Regex Pattern" />
-            <TextBox />
             <TextBlock Text="Document Map" />
             <ListView Name="PresetList"  
                       ItemsSource="{Binding MethodSignatureCollection}" 
                       SelectedItem="{Binding SelectectedDocumentItem}"
+                      DisplayMemberPath="currentMatch"
                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">

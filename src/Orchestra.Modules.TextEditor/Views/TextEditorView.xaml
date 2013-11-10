@@ -13,7 +13,6 @@
         <catel:StackGrid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="62*" />
-            <RowDefinition Height="77*"/>
         </catel:StackGrid.RowDefinitions>
 
         <catel:StackGrid.ColumnDefinitions>
@@ -44,11 +43,11 @@
         </Button>
 
 
-        <WebBrowser x:Name="webBrowser" Grid.ColumnSpan="4" Grid.Row="1" />
+       
 
         <avalonEdit:TextEditor Grid.ColumnSpan="4"	
 			x:Name="textEditor"
-			FontSize="10pt" Grid.Row="2"
+			FontSize="10pt" Grid.Row="1"
             Document="{Binding Document, UpdateSourceTrigger=PropertyChanged}"
             SyntaxHighlighting="{Binding HighlightDef}"
             IsReadOnly="{Binding IsReadOnly}"

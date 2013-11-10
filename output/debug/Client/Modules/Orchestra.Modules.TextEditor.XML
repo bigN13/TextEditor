@@ -4,6 +4,36 @@
         <name>Orchestra.Modules.TextEditor</name>
     </assembly>
     <members>
+        <member name="T:Orchestra.Modules.TextEditorModule.Helpers.BraceFoldingStrategy">
+            <summary>
+            Allows producing foldings from a document based on braces.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Helpers.BraceFoldingStrategy.#ctor">
+            <summary>
+            Creates a new BraceFoldingStrategy.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Helpers.BraceFoldingStrategy.CreateNewFoldings(ICSharpCode.AvalonEdit.Document.TextDocument,System.Int32@)">
+            <summary>
+            Create <see cref="T:ICSharpCode.AvalonEdit.Folding.NewFolding"/>s for the specified document.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Helpers.BraceFoldingStrategy.CreateNewFoldings(ICSharpCode.AvalonEdit.Document.ITextSource)">
+            <summary>
+            Create <see cref="T:ICSharpCode.AvalonEdit.Folding.NewFolding"/>s for the specified document.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Helpers.BraceFoldingStrategy.OpeningBrace">
+            <summary>
+            Gets/Sets the opening brace. The default value is '{'.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Helpers.BraceFoldingStrategy.ClosingBrace">
+            <summary>
+            Gets/Sets the closing brace. The default value is '}'.
+            </summary>
+        </member>
         <member name="T:Orchestra.Modules.TextEditorModule.TextEditorModule">
             <summary>
             Browser module.
@@ -399,6 +429,21 @@
             Gets the CloseBrowser command.
             </summary>
         </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.ViewModels.MatchItem">
+            <summary>
+            Match Document Item
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.MatchItem.currentLine">
+            <summary>
+            The line of detected match
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.MatchItem.currentMatch">
+            <summary>
+            The actual detected match
+            </summary>
+        </member>
         <member name="T:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel">
             <summary>
             Backing ViewModel for the PropertiesView
@@ -427,7 +472,7 @@
         </member>
         <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.OnDocMapSelectedCommandExecute">
             <summary>
-            Method to invoke when the ShowLineNumbers command is executed.
+            Method to send the Selected Item back to Text Editor .
             </summary>
         </member>
         <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.Url">
@@ -471,9 +516,37 @@
             Called when the view model has changed.
             </summary>
         </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Views.TextEditorView.Draw(ICSharpCode.AvalonEdit.Rendering.TextView,System.Windows.Media.DrawingContext)">
+            <summary>
+            Override the TextEditor Default Drawing
+            </summary>
+            <param name="textView"></param>
+            <param name="drawingContext"></param>
+        </member>
         <member name="M:Orchestra.Modules.TextEditorModule.Views.TextEditorView.InitializeComponent">
             <summary>
             InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.Views.OffsetColorizer">
+            <summary>
+            Custom Colorizer
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Views.OffsetColorizer.ColorizeLine(ICSharpCode.AvalonEdit.Document.DocumentLine)">
+            <summary>
+            Colorize specific line
+            </summary>
+            <param name="line"></param>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Views.OffsetColorizer.StartOffset">
+            <summary>
+            Start Offser
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Views.OffsetColorizer.EndOffset">
+            <summary>
+            EndOffser
             </summary>
         </member>
         <member name="T:Orchestra.Modules.TextEditorModule.Views.PropertiesView">

@@ -24,6 +24,7 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
     using System.Windows;
     using Microsoft.Win32;
     using System.Text.RegularExpressions;
+    using ICSharpCode.AvalonEdit.Rendering;
 
     /// <summary>
     /// UserControl view model.
@@ -129,13 +130,21 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
 
             #region Mediators
             //var messageMediator = ServiceLocator.Default.ResolveType<IMessageMediator>();
-            messageMediator.Register<string>(this, OnBrowse, "selectedItem");
+            //messageMediator.Register<string>(this, OnParse, "selectedItem");
             #endregion
         }
 
-        private void OnBrowse(string SelectedItem)
+        private void OnParse(string SelectedItem)
         {
-            MessageBox.Show(SelectedItem);
+            //MessageBox.Show(SelectedItem);
+
+            if (SelectedItem !=null)
+            {
+                //TextView textView = this._document.TextArea.TextView;
+
+                this._document.GetLineByOffset(15);
+            }
+
             //Match m = (Match)SelectedItem;
             //webBrowser.Navigate(url, null, null, string.Format("User-Agent: {0}", UserAgent));
         }
@@ -802,11 +811,13 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
             }
         }
 
-        List<string> methodsCollection;
+
+        #region Document map
+        List<MatchItem> methodsCollection;
 
         private void MethodsCollection()
         {
-            methodsCollection = new List<string>();
+            methodsCollection = new List<MatchItem>();
 
             Regex r = null;
             Match m;
@@ -818,42 +829,75 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
 
             //Finds all strings
             //string regextPattern = @"((private)|(public)|(sealed)|(protected)|(virtual)|(internal))+([a-z]|[A-Z]|[0-9]|[\s])*([\()([a-z]|[A-Z]|[0-9]|[\s])*([\)|\{]+)";
-            
+
             //Finds All Methods
             //string regextPattern = @"((private)|(public)|(sealed)|(protected)|(virtual)|(internal))+([a-z]|[A-Z]|[0-9]|[\s])*([\()([a-z]|[A-Z]|[0-9]|[\s])*([\)|\(]+)";
             //string regextPattern2 = @"\s+|(<<|>>|\+\+|--|==|\!=|>=|<=|\{|\}|\[|\]|\(|\)|\.|,|:|;|\+|-|\*|/|%|&|\||\^|!|~|=|\<|\>|\?)";
             //string regextPattern2 = @"^(?=.*?\b(private|public|sealed)\b)(?=.*?\b(\b)(?=.*?\b)\b).*$";
+            //string regextPattern = @"((private)|(public)|(sealed)|(protected)|(virtual)|(internal))+([a-z]|[A-Z]|[0-9]|[\s])*([\()([a-z]|[A-Z]|[0-9]|[\s])*([\)|\{]+)";
+            //m = Regex.Match(this._document.Text, regextPattern2);
+            //MatchCollection MethodSignatureCollection = Regex.Match(this._document.Text, regextPattern);
+
+            // Matches a complete line of text that contains any of the words "private", "public" etc.
+            // The first backreference will contain the word the line actually contains. If it contains more than one of the words, 
+            // then the last (rightmost) word will be captured into the first backreference. This is because the star is greedy.
+            // Finally, .*$ causes the regex to actually match the line, after the lookaheads have determined it meets the requirements.
             string regextPattern2 = @"^.*\b(private|public|sealed|protected|virtual|internal)\b.*$";
 
             try
             {
-                r = new Regex(regextPattern2,TheOptions);           
+                r = new Regex(regextPattern2, TheOptions);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("There was an error in the regular expression!\n\n"
-                    + ex.Message + "\n", "Expresso Error");
+                    + ex.Message + "\n", "orchestra TextEditor Error");
             }
 
-
-            //m = Regex.Match(this._document.Text, regextPattern2);
-
-
-            //string regextPattern = @"((private)|(public)|(sealed)|(protected)|(virtual)|(internal))+([a-z]|[A-Z]|[0-9]|[\s])*([\()([a-z]|[A-Z]|[0-9]|[\s])*([\)|\{]+)";
-
-            //MatchCollection MethodSignatureCollection = Regex.Match(this._document.Text, regextPattern);
-
-            for (m = r.Match(this._document.Text); m.Success; m = m.NextMatch())
+            for (int i = 1; i < this._document.LineCount; i++)
             {
-                if (m.Value.Length>0)
+                DocumentLine line = this._document.GetLineByNumber(i);
+
+                m = r.Match(this._document.GetText(line));
+                if (m.Success)
                 {
-                    methodsCollection.Add(m.ToString());
+                    MatchItem mi = new MatchItem();
+                    mi.currentLine = i;
+                    mi.currentMatch = m;
+                    methodsCollection.Add(mi);
                 }
             }
+
+            //for (m = r.Match(this._document.Text); m.Success; m = m.NextMatch())
+            //{
+            //    if (m.Value.Length > 0)
+            //    {
+            //        //methodsCollection.Add(m.ToString());
+            //        methodsCollection.Add(m);
+            //    }
+            //}
 
             //foreach (var item in MethodSignatureCollection)
             //    methodsCollection.Add(item.ToString());
 
-        } 
+        }  
+        #endregion
     }
+    /// <summary>
+    /// Match Document Item
+    /// </summary>
+    public class MatchItem
+    {
+        /// <summary>
+        /// The line of detected match
+        /// </summary>
+        public int currentLine { get; set; }
+
+        /// <summary>
+        /// The actual detected match
+        /// </summary>
+        public Match currentMatch { get; set; }
+    }
+
+
 }

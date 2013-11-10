@@ -11,6 +11,7 @@ using Catel.MVVM;
 using Catel.MVVM.Services;
 using Orchestra.Services;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows;
 namespace Orchestra.Modules.TextEditorModule.ViewModels
 {
@@ -73,12 +74,12 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
         /// <summary>
         /// Gets or sets the MethodSignatureCollection
         /// </summary>
-        public List<string> MethodSignatureCollection { get; set; }
+        public List<MatchItem> MethodSignatureCollection { get; set; }
 
         /// <summary>
         /// Gets or sets the MethodSignatureCollection
         /// </summary>
-        public string SelectectedDocumentItem { get; set; }
+        public MatchItem SelectectedDocumentItem { get; set; }
 
         #endregion
 
@@ -98,14 +99,14 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
         }
 
         /// <summary>
-        /// Method to invoke when the ShowLineNumbers command is executed.
+        /// Method to send the Selected Item back to Text Editor .
         /// </summary>
         private void OnDocMapSelectedCommandExecute()
         {
-            MessageBox.Show("Invoiked");
-
-            //send Selectected value to TextEditorViewModel
-            _messageMediator.SendMessage(SelectectedDocumentItem,"selectedItem");
+            if (SelectectedDocumentItem != null)
+            {
+                _messageMediator.SendMessage(SelectectedDocumentItem, "selectedItem");
+            }           
         }
         #endregion
 
