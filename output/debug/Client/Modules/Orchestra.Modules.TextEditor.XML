@@ -528,25 +528,9 @@
             InitializeComponent
             </summary>
         </member>
-        <member name="T:Orchestra.Modules.TextEditorModule.Views.OffsetColorizer">
+        <member name="T:Orchestra.Modules.TextEditorModule.Views.TextEditorView.LineColorizer">
             <summary>
-            Custom Colorizer
-            </summary>
-        </member>
-        <member name="M:Orchestra.Modules.TextEditorModule.Views.OffsetColorizer.ColorizeLine(ICSharpCode.AvalonEdit.Document.DocumentLine)">
-            <summary>
-            Colorize specific line
-            </summary>
-            <param name="line"></param>
-        </member>
-        <member name="P:Orchestra.Modules.TextEditorModule.Views.OffsetColorizer.StartOffset">
-            <summary>
-            Start Offser
-            </summary>
-        </member>
-        <member name="P:Orchestra.Modules.TextEditorModule.Views.OffsetColorizer.EndOffset">
-            <summary>
-            EndOffser
+            Custom LineColorizer
             </summary>
         </member>
         <member name="T:Orchestra.Modules.TextEditorModule.Views.PropertiesView">

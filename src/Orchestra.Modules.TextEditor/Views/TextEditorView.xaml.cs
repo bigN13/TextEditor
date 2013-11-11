@@ -98,24 +98,30 @@ using System.Windows.Media;
 
                 textEditor.ScrollTo(m.currentLine, 0);
 
-                if (textEditor.Document.LineCount>1)
-                {
-                    var line = textEditor.Document.GetLineByNumber(m.currentLine);
 
-                    var col = new OffsetColorizer();
+                textEditor.TextArea.TextView.Redraw(); // invalidate whole document
+               
+                // Add Colors
+                textEditor.TextArea.TextView.LineTransformers.Add(new LineColorizer(m.currentLine));
 
-                    col.StartOffset = line.Offset;
-                    col.EndOffset = line.EndOffset;
-                }
+                //if (textEditor.Document.LineCount>1)
+                //{
+                //    var line = textEditor.Document.GetLineByNumber(m.currentLine);
+
+                //    var col = new OffsetColorizer();
+
+                //    col.StartOffset = line.Offset;
+                //    col.EndOffset = line.EndOffset;
+                //}
              
              
 
-                TextViewPosition? start = textEditor.TextArea.TextView.GetPosition(new Point(0, 0) + textEditor.TextArea.TextView.ScrollOffset);
-                TextViewPosition? end = textEditor.TextArea.TextView.GetPosition(new Point(textEditor.TextArea.TextView.ActualWidth, textEditor.TextArea.TextView.ActualHeight) + textEditor.TextArea.TextView.ScrollOffset);
+                //TextViewPosition? start = textEditor.TextArea.TextView.GetPosition(new Point(0, 0) + textEditor.TextArea.TextView.ScrollOffset);
+                //TextViewPosition? end = textEditor.TextArea.TextView.GetPosition(new Point(textEditor.TextArea.TextView.ActualWidth, textEditor.TextArea.TextView.ActualHeight) + textEditor.TextArea.TextView.ScrollOffset);
 
-                //textEditor.TextArea
+                ////textEditor.TextArea
 
-                int firstLine = textEditor.TextArea.TextView.GetDocumentLineByVisualTop(textEditor.TextArea.TextView.ScrollOffset.Y).LineNumber;
+                //int firstLine = textEditor.TextArea.TextView.GetDocumentLineByVisualTop(textEditor.TextArea.TextView.ScrollOffset.Y).LineNumber;
 
                 //Move to top
                 //textEditor.ScrollTo(firstLine - m.currentLine, 0);
@@ -179,6 +185,11 @@ using System.Windows.Media;
             //webBrowser.Navigate(url, null, null, string.Format("User-Agent: {0}", UserAgent));
         }
 
+ 
+
+        #endregion
+
+        #region Colorize Selected Line
         /// <summary>
         /// Override the TextEditor Default Drawing
         /// </summary>
@@ -205,7 +216,85 @@ using System.Windows.Media;
             }
         }
 
+        /// <summary>
+        /// Custom LineColorizer
+        /// </summary>
+        class LineColorizer : DocumentColorizingTransformer
+        {
+            int lineNumber;
+
+            public LineColorizer(int lineNumber)
+            {
+                if (lineNumber < 1)
+                    throw new ArgumentOutOfRangeException("lineNumber", lineNumber, "Line numbers are 1-based.");
+                this.lineNumber = lineNumber;
+            }
+
+            public int LineNumber
+            {
+                get { return lineNumber; }
+                set
+                {
+                    if (value < 1)
+                        throw new ArgumentOutOfRangeException("value", value, "Line numbers are 1-based.");
+                    lineNumber = value;
+                }
+            }
+
+            protected override void ColorizeLine(ICSharpCode.AvalonEdit.Document.DocumentLine line)
+            {
+                if (!line.IsDeleted && line.LineNumber == lineNumber)
+                {
+                    ChangeLinePart(line.Offset, line.EndOffset, ApplyChanges);
+
+                    //int lineStartOffset = line.Offset;
+                    //string text = CurrentContext.Document.GetText(line);
+                    //int start = 0;
+                    //int index;
+                    //while ((index = text.IndexOf("AvalonEdit", start)) >= 0)
+                    //{
+                    //    base.ChangeLinePart(
+                    //        lineStartOffset + index, // startOffset
+                    //        lineStartOffset + index + 10, // endOffset
+                    //        (VisualLineElement element) =>
+                    //        {
+                    //            // This lambda gets called once for every VisualLineElement
+                    //            // between the specified offsets.
+                    //            Typeface tf = element.TextRunProperties.Typeface;
+                    //            // Replace the typeface with a modified version of
+                    //            // the same typeface
+                    //            element.TextRunProperties.SetTypeface(new Typeface(
+                    //                tf.FontFamily,
+                    //                FontStyles.Italic,
+                    //                FontWeights.Bold,
+                    //                tf.Stretch
+                    //            ));
+                    //        });
+                    //    start = index + 1; // search for next occurrence
+                    //}
+                }
+            }
+
+            void ApplyChanges(VisualLineElement element)
+            {
+                // apply changes here
+                //element.TextRunProperties.SetForegroundBrush(Brushes.Yellow);
+
+                // This lambda gets called once for every VisualLineElement
+                // between the specified offsets.
+                Typeface tf = element.TextRunProperties.Typeface;
+                // Replace the typeface with a modified version of
+                // the same typeface
+                element.TextRunProperties.SetTypeface(new Typeface(
+                    tf.FontFamily,
+                    FontStyles.Italic,
+                    FontWeights.Bold,
+                    tf.Stretch
+                ));
+            }
+        }
         #endregion
+
 
         #region Folding
         FoldingManager foldingManager = null;
@@ -265,37 +354,6 @@ using System.Windows.Media;
 	
     }
 
-    /// <summary>
-    /// Custom Colorizer
-    /// </summary>
-    public class OffsetColorizer : DocumentColorizingTransformer
-    {
-        /// <summary>
-        /// Start Offser
-        /// </summary>
-        public int StartOffset { get; set; }
-
-        /// <summary>
-        /// EndOffser
-        /// </summary>
-        public int EndOffset { get; set; }
-
-        /// <summary>
-        /// Colorize specific line
-        /// </summary>
-        /// <param name="line"></param>
-        protected override void ColorizeLine(DocumentLine line)
-        {
-            if (line.Length == 0)
-                return;
-
-            if (line.Offset < StartOffset || line.Offset > EndOffset)
-                return;
-
-            int start = line.Offset > StartOffset ? line.Offset : StartOffset;
-            int end = EndOffset > line.EndOffset ? line.EndOffset : EndOffset;
-
-            ChangeLinePart(start, end, element => element.TextRunProperties.SetForegroundBrush(Brushes.Red));
-        }
-    }
+ 
+ 
 }
