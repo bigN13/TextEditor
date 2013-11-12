@@ -516,13 +516,6 @@
             Called when the view model has changed.
             </summary>
         </member>
-        <member name="M:Orchestra.Modules.TextEditorModule.Views.TextEditorView.Draw(ICSharpCode.AvalonEdit.Rendering.TextView,System.Windows.Media.DrawingContext)">
-            <summary>
-            Override the TextEditor Default Drawing
-            </summary>
-            <param name="textView"></param>
-            <param name="drawingContext"></param>
-        </member>
         <member name="M:Orchestra.Modules.TextEditorModule.Views.TextEditorView.InitializeComponent">
             <summary>
             InitializeComponent

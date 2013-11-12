@@ -24,6 +24,8 @@ namespace Orchestra.Modules.TextEditorModule.Views
     using System.Windows;
 using System.Windows.Media;
     using ICSharpCode.AvalonEdit;
+    using ICSharpCode.AvalonEdit.Highlighting;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Interaction logic for BrowserView.xaml.
@@ -34,6 +36,14 @@ using System.Windows.Media;
         private const string UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
         #endregion
 
+        #region Fields
+        int prevHighlightedLine = 0;
+
+        List<LineColorizer> ColorizerCollection;
+
+        
+        #endregion
+
         #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="TextEditorView"/> class.
@@ -41,6 +51,8 @@ using System.Windows.Media;
         public TextEditorView()
         {
             InitializeComponent();
+
+            ColorizerCollection = new List<LineColorizer>();
 
             #region Folding Init
             //foldingStrategy = new XmlFoldingStrategy();
@@ -88,21 +100,65 @@ using System.Windows.Media;
             //webBrowser.Navigate(url, null, null, string.Format("User-Agent: {0}", UserAgent));
         }
 
+
+ 
         private void OnParse(MatchItem SelectedItem)
         {
-            //MessageBox.Show(SelectedItem);
-
             if (SelectedItem != null)
             {
                 MatchItem m = SelectedItem;
 
                 textEditor.ScrollTo(m.currentLine, 0);
 
+                if (ColorizerCollection.Count > 0 && textEditor.Document.LineCount > 1)
+	            {
+                    textEditor.TextArea.TextView.LineTransformers.Remove(ColorizerCollection[0]);
+                    IHighlighter documentHighlighter = textEditor.TextArea.GetService(typeof(IHighlighter)) as IHighlighter;
+                    HighlightedLine result = documentHighlighter.HighlightLine(textEditor.Document.GetLineByNumber(prevHighlightedLine).LineNumber);
+                    
+                    textEditor.TextArea.TextView.Redraw(result.DocumentLine); // invalidate specific Line
+                    ColorizerCollection.Clear();
+	            }
 
-                textEditor.TextArea.TextView.Redraw(); // invalidate whole document
-               
+                //if (textEditor.Document.LineCount > 1)
+                //{
+                //    //var line = textEditor.Document.GetLineByNumber(m.currentLine);
+                //    //double visualTop = line.Offset-15;
+                //    ////textEditor.TextArea.TextView.GetVisualTopByDocumentLine(5);
+                //    //textEditor.ScrollToVerticalOffset(visualTop);
+                //    //ColorizeAvalonEdit sdfsdf = new ColorizeAvalonEdit()
+
+                //    // Remove previous
+                //    if (prevHighlightedLine > 0)
+                //    {
+                //        ////LineColorizer _prevColorizer = new LineColorizer(prevHighlightedLine);
+                //        //textEditor.TextArea.TextView.LineTransformers.Remove(prevColorizer);
+
+                //        //textEditor.TextArea.TextView.LineTransformers.Remove(new LineColorizer(prevHighlightedLine));
+
+                //        //IHighlighter documentHighlighter = textEditor.TextArea.GetService(typeof(IHighlighter)) as IHighlighter;
+                //        //HighlightedLine result = documentHighlighter.HighlightLine(textEditor.Document.GetLineByNumber(prevHighlightedLine).LineNumber);
+
+                //        //textEditor.TextArea.TextView.LineTransformers.Remove(result.i);
+
+                        
+                //        //prevColorizer
+                //        textEditor.TextArea.TextView.Redraw(); // invalidate whole document
+                //        //result.DocumentLine.
+                //    }
+                //}
+              
                 // Add Colors
-                textEditor.TextArea.TextView.LineTransformers.Add(new LineColorizer(m.currentLine));
+                LineColorizer currentHighligtedLine = new LineColorizer(m.currentLine);
+
+                textEditor.TextArea.TextView.LineTransformers.Add(currentHighligtedLine);
+
+                ColorizerCollection.Add(currentHighligtedLine);
+
+                textEditor.TextArea.TextView.Redraw(); // invalidate specific Line
+                prevHighlightedLine = m.currentLine;
+
+               
 
                 //if (textEditor.Document.LineCount>1)
                 //{
@@ -190,31 +246,7 @@ using System.Windows.Media;
         #endregion
 
         #region Colorize Selected Line
-        /// <summary>
-        /// Override the TextEditor Default Drawing
-        /// </summary>
-        /// <param name="textView"></param>
-        /// <param name="drawingContext"></param>
-        public void Draw(TextView textView, DrawingContext drawingContext)
-        {
-            textView.EnsureVisualLines();
-            var line = textEditor.Document.GetLineByOffset(textEditor.CaretOffset);
-            var segment = new TextSegment { StartOffset = line.Offset, EndOffset = line.EndOffset };
 
-            foreach (Rect r in BackgroundGeometryBuilder.GetRectsForSegment(textView, segment))
-            {
-                drawingContext.DrawRoundedRectangle(
-                    new SolidColorBrush(Color.FromArgb(20, 0xff, 0xff, 0xff)),
-                    new Pen(new SolidColorBrush(Color.FromArgb(30, 0xff, 0xff, 0xff)), 1),
-                    new Rect(r.Location, new Size(textView.ActualWidth, r.Height)),
-                    3, 3
-                );
-                //foreach (Rect r in BackgroundGeometryBuilder.GetRectsForSegment(textView, segment))
-                //{
-                //    drawingContext.DrawRoundedRectangle(background, border, new Rect(r.Location, new Size(textView.ActualWidth, r.Height)), 3, 3);
-                //}
-            }
-        }
 
         /// <summary>
         /// Custom LineColorizer
@@ -223,6 +255,7 @@ using System.Windows.Media;
         {
             int lineNumber;
 
+        
             public LineColorizer(int lineNumber)
             {
                 if (lineNumber < 1)
@@ -243,42 +276,21 @@ using System.Windows.Media;
 
             protected override void ColorizeLine(ICSharpCode.AvalonEdit.Document.DocumentLine line)
             {
+              
+
                 if (!line.IsDeleted && line.LineNumber == lineNumber)
                 {
-                    ChangeLinePart(line.Offset, line.EndOffset, ApplyChanges);
+                    int start = line.Offset;
+                    int end = line.EndOffset;
 
-                    //int lineStartOffset = line.Offset;
-                    //string text = CurrentContext.Document.GetText(line);
-                    //int start = 0;
-                    //int index;
-                    //while ((index = text.IndexOf("AvalonEdit", start)) >= 0)
-                    //{
-                    //    base.ChangeLinePart(
-                    //        lineStartOffset + index, // startOffset
-                    //        lineStartOffset + index + 10, // endOffset
-                    //        (VisualLineElement element) =>
-                    //        {
-                    //            // This lambda gets called once for every VisualLineElement
-                    //            // between the specified offsets.
-                    //            Typeface tf = element.TextRunProperties.Typeface;
-                    //            // Replace the typeface with a modified version of
-                    //            // the same typeface
-                    //            element.TextRunProperties.SetTypeface(new Typeface(
-                    //                tf.FontFamily,
-                    //                FontStyles.Italic,
-                    //                FontWeights.Bold,
-                    //                tf.Stretch
-                    //            ));
-                    //        });
-                    //    start = index + 1; // search for next occurrence
-                    //}
+                    ChangeLinePart(start, end, ApplyChanges);
                 }
             }
 
             void ApplyChanges(VisualLineElement element)
             {
                 // apply changes here
-                //element.TextRunProperties.SetForegroundBrush(Brushes.Yellow);
+                element.TextRunProperties.SetBackgroundBrush(Brushes.Silver);
 
                 // This lambda gets called once for every VisualLineElement
                 // between the specified offsets.
@@ -293,7 +305,8 @@ using System.Windows.Media;
                 ));
             }
         }
-        #endregion
+
+           #endregion
 
 
         #region Folding
