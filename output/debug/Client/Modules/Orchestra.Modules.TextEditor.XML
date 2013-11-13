@@ -34,6 +34,188 @@
             Gets/Sets the closing brace. The default value is '}'.
             </summary>
         </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.Helpers.ColorizeAvalonEdit">
+            <summary>
+            Finds the word 'AvalonEdit' and makes it bold and italic.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Helpers.ColorizeAvalonEdit.ColorizeLine(ICSharpCode.AvalonEdit.Document.DocumentLine)">
+            <summary>
+            Colorize specific Line
+            </summary>
+            <param name="line"></param>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditor.Helpers.LineColorizer">
+            <summary>
+            Custom LineColorizer
+            </summary>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.Helpers.MyCompletionData">
+            <summary>
+            Implements AvalonEdit ICompletionData interface to provide the entries in the completion drop down.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Helpers.MyCompletionData.#ctor(System.String)">
+            <summary>
+            Complete the Text
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Helpers.MyCompletionData.Complete(ICSharpCode.AvalonEdit.Editing.TextArea,ICSharpCode.AvalonEdit.Document.ISegment,System.EventArgs)">
+            <summary>
+            Complete the textarea
+            </summary>
+            <param name="textArea"></param>
+            <param name="completionSegment"></param>
+            <param name="insertionRequestEventArgs"></param>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Helpers.MyCompletionData.Image">
+            <summary>
+            Image
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Helpers.MyCompletionData.Text">
+            <summary>
+            Text Property
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Helpers.MyCompletionData.Content">
+            <summary>
+             Use this property if you want to show a fancy UIElement in the drop down list.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Helpers.MyCompletionData.Description">
+            <summary>
+            Description for this test
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Helpers.MyCompletionData.Priority">
+            <summary>
+            Priority 
+            </summary>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.Intellisense.CompletionWindowResolver">
+            <summary>
+            CompletionWindowResolver
+            </summary>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.Intellisense.ICompletionWindowResolver">
+            <summary>
+            ICompletionWindowResolver
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Intellisense.ICompletionWindowResolver.Resolve">
+            <summary>
+            Resolve
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Intellisense.CompletionWindowResolver.#ctor(System.String,System.Int32,System.String,ICSharpCode.AvalonEdit.TextEditor)">
+            <summary>
+            CompletionWindowResolver
+            </summary>
+            <param name="text"></param>
+            <param name="position"></param>
+            <param name="input"></param>
+            <param name="textEditor"></param>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Intellisense.CompletionWindowResolver.Resolve">
+            <summary>
+            Resolve
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.Intellisense.FileCompletionDataProvider">
+            <summary>
+            FileCompletionDataProvider
+            </summary>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.Intellisense.ICompletionDataProvider">
+            <summary>
+            ICompletionDataProvider
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Intellisense.ICompletionDataProvider.GetData(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            GetData
+            </summary>
+            <param name="text"></param>
+            <param name="position"></param>
+            <param name="input"></param>
+            <param name="highlightingName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Intellisense.FileCompletionDataProvider.GetData(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            GetData
+            </summary>
+            <param name="text"></param>
+            <param name="position"></param>
+            <param name="input"></param>
+            <param name="highlightingName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.Intellisense.KeywordsFileOption">
+            <summary>
+            KeywordsFileOption
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Intellisense.KeywordsFileOption.HighlightingName">
+            <summary>
+            HighlightingName
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Intellisense.KeywordsFileOption.Filename">
+            <summary>
+            Filename
+            </summary>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.Intellisense.TextCompletionData">
+            <summary>
+            TextCompletionData
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Intellisense.TextCompletionData.#ctor(System.String,System.String,System.Double)">
+            <summary>
+            TextCompletionData
+            </summary>
+            <param name="header"></param>
+            <param name="text"></param>
+            <param name="priority"></param>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Intellisense.TextCompletionData.Complete(ICSharpCode.AvalonEdit.Editing.TextArea,ICSharpCode.AvalonEdit.Document.ISegment,System.EventArgs)">
+            <summary>
+            Complete
+            </summary>
+            <param name="textArea"></param>
+            <param name="completionSegment"></param>
+            <param name="insertionRequestEventArgs"></param>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Intellisense.TextCompletionData.Image">
+            <summary>
+            Image
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Intellisense.TextCompletionData.Text">
+            <summary>
+            Text
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Intellisense.TextCompletionData.Content">
+            <summary>
+            Content
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Intellisense.TextCompletionData.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.Intellisense.TextCompletionData.Priority">
+            <summary>
+            Priority
+            </summary>
+        </member>
         <member name="T:Orchestra.Modules.TextEditorModule.TextEditorModule">
             <summary>
             Browser module.
@@ -519,11 +701,6 @@
         <member name="M:Orchestra.Modules.TextEditorModule.Views.TextEditorView.InitializeComponent">
             <summary>
             InitializeComponent
-            </summary>
-        </member>
-        <member name="T:Orchestra.Modules.TextEditorModule.Views.TextEditorView.LineColorizer">
-            <summary>
-            Custom LineColorizer
             </summary>
         </member>
         <member name="T:Orchestra.Modules.TextEditorModule.Views.PropertiesView">

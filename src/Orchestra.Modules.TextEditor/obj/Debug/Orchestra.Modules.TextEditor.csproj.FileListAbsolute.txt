@@ -24,3 +24,5 @@ K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra.Modules.TextEditor\obj\Deb
 K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra.Modules.TextEditor\obj\Debug\Orchestra.Modules.TextEditor.g.resources
 K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra.Modules.TextEditor\obj\Debug\Orchestra.Modules.TextEditor.dll
 K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra.Modules.TextEditor\obj\Debug\Orchestra.Modules.TextEditor.pdb
+K:\Visual Studio 2012\GitHub\TextEditor\output\debug\Client\Modules\Intellisense\Keywords\keywords_csharp.txt
+K:\Visual Studio 2012\GitHub\TextEditor\output\debug\Client\Modules\Intellisense\Keywords\keywords_sql.txt

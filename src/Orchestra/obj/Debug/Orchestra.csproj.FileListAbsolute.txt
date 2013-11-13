@@ -74,3 +74,20 @@ K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug
 K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\de-DE\Orchestra.resources.dll
 K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\Orchestra.exe
 K:\Visual Studio 2012\DOKIMES\ORCA\Orchestra TextEditor2\src\Orchestra\obj\Debug\Orchestra.pdb
+K:\Visual Studio 2012\GitHub\TextEditor\output\Debug\Client\Resources\Images\SplashScreen.png
+K:\Visual Studio 2012\GitHub\TextEditor\output\Debug\Client\Orchestra.exe.config
+K:\Visual Studio 2012\GitHub\TextEditor\output\Debug\Client\Orchestra.XML
+K:\Visual Studio 2012\GitHub\TextEditor\output\Debug\Client\Orchestra.exe
+K:\Visual Studio 2012\GitHub\TextEditor\output\Debug\Client\Orchestra.pdb
+K:\Visual Studio 2012\GitHub\TextEditor\output\Debug\Client\de-DE\Orchestra.resources.dll
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra\obj\Debug\Orchestra.csprojResolveAssemblyReference.cache
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra\obj\Debug\App.g.cs
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra\obj\Debug\Orchestra_Content.g.cs
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra\obj\Debug\Orchestra_MarkupCompile.cache
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra\obj\Debug\Orchestra.Properties.Resources.resources
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra\obj\Debug\Orchestra.Resources.Resources.resources
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra\obj\Debug\Orchestra.Resources.Resources.de-DE.resources
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra\obj\Debug\Orchestra.csproj.GenerateResource.Cache
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra\obj\Debug\de-DE\Orchestra.resources.dll
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra\obj\Debug\Orchestra.exe
+K:\Visual Studio 2012\GitHub\TextEditor\src\Orchestra\obj\Debug\Orchestra.pdb
