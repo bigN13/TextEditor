@@ -63,7 +63,6 @@ using System.Windows.Media;
 			#region Highlighting definition
 			// Load our custom highlighting definition
 			var type = typeof(TextEditorView);
-			//var fullName = type.Namespace + "." + "CustomHighlighting.xshd";
 			var fullName = "Orchestra.Modules.TextEditor.Helpers.CustomHighlighting.xshd";
 
 			// Get Names of All Embeded Resources
@@ -89,7 +88,10 @@ using System.Windows.Media;
 			ColorizerCollection = new List<LineColorizer>();
 
 			#region Folding Init
-			//foldingStrategy = new XmlFoldingStrategy();
+
+            HighlightingComboBox();
+
+            
 
 			//if (foldingManager == null)
 			//{
@@ -156,8 +158,7 @@ using System.Windows.Media;
 					ColorizerCollection.Clear();
 				}
 
-			 
-			  
+
 				// Add Colors
 				LineColorizer currentHighligtedLine = new LineColorizer(m.currentLine);
 
@@ -167,15 +168,10 @@ using System.Windows.Media;
 
 				textEditor.TextArea.TextView.Redraw(); // invalidate specific Line
 				prevHighlightedLine = m.currentLine;
-
-
 			}
 
 			//webBrowser.Navigate(url, null, null, string.Format("User-Agent: {0}", UserAgent));
 		}
-
- 
-
 		#endregion
 
 
@@ -183,7 +179,6 @@ using System.Windows.Media;
 		{
 		   ICompletionWindowResolver resolver = new CompletionWindowResolver(textEditor.Text, textEditor.CaretOffset, e.Text, textEditor);
 			completionWindow = resolver.Resolve();
-			
 		}
 
 		void textEditor_TextArea_TextEntering(object sender, TextCompositionEventArgs e)
@@ -203,7 +198,7 @@ using System.Windows.Media;
 
 
 		#region Folding
-		FoldingManager foldingManager = null;
+		FoldingManager foldingManager;
 		AbstractFoldingStrategy foldingStrategy;
 
 		void HighlightingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -248,6 +243,49 @@ using System.Windows.Media;
 				}
 			}
 		}
+
+        void HighlightingComboBox()
+        {
+            if (textEditor.SyntaxHighlighting == null)
+            {
+                foldingStrategy = null;
+            }
+            else
+            {
+                switch (textEditor.SyntaxHighlighting.Name)
+                {
+                    case "XML":
+                        foldingStrategy = new XmlFoldingStrategy();
+                        textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.DefaultIndentationStrategy();
+                        break;
+                    case "C#":
+                    case "C++":
+                    case "PHP":
+                    case "Java":
+                        textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.CSharp.CSharpIndentationStrategy(textEditor.Options);
+                        foldingStrategy = new BraceFoldingStrategy();
+                        break;
+                    default:
+                        textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.DefaultIndentationStrategy();
+                        foldingStrategy = null;
+                        break;
+                }
+            }
+            if (foldingStrategy != null)
+            {
+                if (foldingManager == null)
+                    foldingManager = FoldingManager.Install(textEditor.TextArea);
+                foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
+            }
+            else
+            {
+                if (foldingManager != null)
+                {
+                    FoldingManager.Uninstall(foldingManager);
+                    foldingManager = null;
+                }
+            }
+        }
 
 		void foldingUpdateTimer_Tick(object sender, EventArgs e)
 		{

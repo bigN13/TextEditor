@@ -570,7 +570,7 @@
             </summary>
             <value>The name of the URL changed message.</value>
         </member>
-        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.RecentSites">
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.SyntaxHighlighting">
             <summary>
             Gets the recent sites.
             </summary>

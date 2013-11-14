@@ -125,9 +125,19 @@ namespace Orchestra.Modules.TextEditorModule
                  ModuleName);
 
             ribbonService.RegisterContextualRibbonItem<TextEditorView>(
-                new RibbonButton(Name, "File", "SaveAs", "SaveAsCommand") { ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/App/File_SaveAs32.png" },
+                new RibbonButton(Name, "File", "SaveAs", "SaveAsCommand") 
+                { 
+                    ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/App/File_SaveAs32.png" 
+                },
                 ModuleName);
 
+            ribbonService.RegisterContextualRibbonItem<TextEditorView>(
+                new RibbonButton(Name, "File", "CloseMe", "CloseBrowser")
+                {
+                    ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/action_close.png",
+                    ToolTip = new RibbonToolTip { Title = "Close (Ctrl+X)", Text = "Closes the file." }
+                },
+                ModuleName);
             #endregion
 
             #region Edit Buttons
@@ -193,37 +203,11 @@ namespace Orchestra.Modules.TextEditorModule
             ribbonService.RegisterContextualRibbonItem<TextEditorView>(backButton, ModuleName);
             ribbonService.RegisterContextualRibbonItem<TextEditorView>(forwardButton, ModuleName);
             ribbonService.RegisterContextualRibbonItem<TextEditorView>(new RibbonButton(Name, Name, "Browse", "Browse") { ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/action_browse.png" }, ModuleName);
-            ribbonService.RegisterContextualRibbonItem<TextEditorView>(new RibbonSplitButton(Name, Name, "Close", "CloseCommand")
-            {
-                ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/action_close.png",
-                ToolTip = new RibbonToolTip { Title = "Close (Ctrl+X)", Text = "Closes the browser page." },
-                Items = new List<IRibbonItem> 
-                { 
-                    new RibbonGallery
-                    {
-                        Items = new List<IRibbonItem> { backButton, forwardButton },
-                        Orientation = Orientation.Horizontal,
-                        ItemWidth = 56, ItemHeight = 64
-                    } 
-                }
-            }, ModuleName);
-            //ribbonService.RegisterContextualRibbonItem<TextEditorView>(new RibbonSplitButton(Name, Name, "Close", "CloseBrowser")
-            //{
-            //    ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/action_close.png",
-            //    ToolTip = new RibbonToolTip { Title = "Close (Ctrl+X)", Text = "Closes the browser page." },
-            //    Items = new List<IRibbonItem> 
-            //    { 
-            //        new RibbonGallery
-            //        {
-            //            Items = new List<IRibbonItem> { backButton, forwardButton },
-            //            Orientation = Orientation.Horizontal,
-            //            ItemWidth = 56, ItemHeight = 64
-            //        } 
-            //    }
-            //}, ModuleName);
+
+
             ribbonService.RegisterContextualRibbonItem<TextEditorView>(new RibbonComboBox(Name, "Recent Sites")
             {
-                ItemsSource = "RecentSites",
+                ItemsSource = "SyntaxHighlighting",
                 SelectedItem = "SelectedSite",
                 Layout = new RibbonItemLayout { Width = 150 },
                 Style = Application.Current.Resources["SelectedSitesComboBoxStyle"] as Style
@@ -239,6 +223,20 @@ namespace Orchestra.Modules.TextEditorModule
                 orchestraService.ShowDocumentIfHidden<PropertiesViewModel>();
             })) { ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/action_browse.png" });
 
+            ribbonService.RegisterContextualRibbonItem<TextEditorView>(new RibbonSplitButton(Name, Name, "Close", "CloseCommand")
+            {
+                ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/action_close.png",
+                ToolTip = new RibbonToolTip { Title = "Close (Ctrl+X)", Text = "Closes the browser page." },
+                Items = new List<IRibbonItem> 
+                { 
+                    new RibbonGallery
+                    {
+                        Items = new List<IRibbonItem> { backButton, forwardButton },
+                        Orientation = Orientation.Horizontal,
+                        ItemWidth = 56, ItemHeight = 64
+                    } 
+                }
+            }, ModuleName);
             #endregion
 
             // Demo: register contextual view related to browserview
@@ -323,7 +321,7 @@ namespace Orchestra.Modules.TextEditorModule
 
 
             var typeFactory = TypeFactory.Default;
-            orcaViewModel = typeFactory.CreateInstanceWithParametersAndAutoCompletion<TextEditorViewModel>(this);
+            orcaViewModel = typeFactory.CreateInstanceWithParametersAndAutoCompletion<TextEditorViewModel>("Noname", this);
             orcaViewModel.FilePath = filepath;
             orchestraService.ShowDocument(orcaViewModel);
 

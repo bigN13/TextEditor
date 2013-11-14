@@ -63,7 +63,12 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
                 Title = title;
             }
             _textEditorModule = textEditorModule;
-
+            // Set Highlightning to C#
+            this.HighlightDef = HighlightingManager.Instance.GetDefinition("C#");
+            //this._isDirty = false;
+            this.IsReadOnly = false;
+            this.ShowLineNumbers = true;
+            this.WordWrap = false;
         }
 
         /// <summary>
@@ -96,10 +101,11 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
             //this.f = new TextEditorViewModel();
             //this.Document = new TextDocument();
 
+            // Set Highlightning to C#
             this.HighlightDef = HighlightingManager.Instance.GetDefinition("C#");
             //this._isDirty = false;
             this.IsReadOnly = false;
-            this.ShowLineNumbers = false;
+            this.ShowLineNumbers = true;
             this.WordWrap = false;
 
             //this.Closing += new EventHandler<EventArgs>(dc_Closing);
@@ -637,7 +643,7 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
         /// <value>
         /// The recent sites.
         /// </value>
-        public string[] RecentSites { get { return new[] { "Orchestra", "Catel" }; } }
+        public string[] SyntaxHighlighting { get { return new[] { "Orchestra", "Catel" }; } }
 
         #region SelectedSite property
 
