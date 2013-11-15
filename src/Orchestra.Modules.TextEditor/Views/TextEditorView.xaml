@@ -7,7 +7,9 @@
 						xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
 						xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 						xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+						xmlns:controls="clr-namespace:Orchestra.Modules.TextEditorModule.Helpers"
 						mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
+   
 
     <catel:StackGrid>
         <catel:StackGrid.RowDefinitions>
@@ -34,7 +36,7 @@
             <i:Interaction.Behaviors>
                 <catel:SelectTextOnFocus />
                 <catel:UpdateBindingOnTextChanged UpdateDelay="0" />
-                <catel:KeyPressToCommand Key="Enter" Command="{Binding Browse}" />
+                <catel:KeyPressToCommand Key="Enter" Command="{Binding UpdateCommand}" />
             </i:Interaction.Behaviors>
         </TextBox>
 
@@ -42,20 +44,27 @@
             <Image Source="/Orchestra.Modules.TextEditor;component/Resources/Images/action_browse.png" />
         </Button>
 
-
-       
-
         <avalonEdit:TextEditor Grid.ColumnSpan="4"	
 			x:Name="textEditor"
 			FontSize="10pt" Grid.Row="1"
-            Document="{Binding Document, UpdateSourceTrigger=PropertyChanged}"
+            Document="{Binding Document, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             SyntaxHighlighting="{Binding HighlightDef}"
             IsReadOnly="{Binding IsReadOnly}"
             IsModified="{Binding Path=IsDirty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 			FontFamily="Consolas"
 			ShowLineNumbers="{Binding Path=ShowLineNumbers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"			
 			WordWrap="{Binding Path=WordWrap, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                   
-				>
+				>  
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="TextChanged">
+                    <catel:EventToCommand 
+                    Command="{Binding Path=DataContext.UpdateCommand, 
+                                        RelativeSource={RelativeSource FindAncestor, AncestorType=catel:UserControl, AncestorLevel=1}}" 
+                        CommandParameter="{Binding Path=Document, ElementName=textEditor}" 
+                        DisableAssociatedObjectOnCannotExecute="False" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
             <avalonEdit:TextEditor.ContextMenu>
                 <ContextMenu>
                     <MenuItem Command="Cut" Header="Cut" />

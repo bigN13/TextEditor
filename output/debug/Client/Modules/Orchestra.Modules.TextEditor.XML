@@ -4,6 +4,11 @@
         <name>Orchestra.Modules.TextEditor</name>
     </assembly>
     <members>
+        <member name="T:Orchestra.Modules.TextEditor.Helpers.AvalonEditBehaviour">
+            <summary>
+            AvalonEditBehaviour
+            </summary>
+        </member>
         <member name="T:Orchestra.Modules.TextEditorModule.Helpers.BraceFoldingStrategy">
             <summary>
             Allows producing foldings from a document based on braces.
@@ -407,6 +412,17 @@
             Method to invoke when the Browse command is executed.
             </summary>
         </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnUpdateCommandCanExecute">
+            <summary>
+            Method to check whether the Browse command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnUpdateCommandExecute">
+            <summary>
+            Method to invoke when the Browse command is executed.
+            </summary>
+        </member>
         <member name="F:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.UrlProperty">
             <summary>
             Url property data.
@@ -476,6 +492,11 @@
         <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.UpdateContextSensitiveData">
             <summary>
             Update the context sensitive data, related to this view.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.myTest">
+            <summary>
+            myTest
             </summary>
         </member>
         <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.FilePath">
@@ -556,6 +577,11 @@
         <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.SaveAsCommand">
             <summary>
             Gets the Close command.
+            </summary>
+        </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.UpdateCommand">
+            <summary>
+            Gets the Update command.
             </summary>
         </member>
         <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.Url">
@@ -719,6 +745,36 @@
         <member name="M:Orchestra.Modules.TextEditorModule.Views.PropertiesView.InitializeComponent">
             <summary>
             InitializeComponent
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
             </summary>
         </member>
     </members>

@@ -92,6 +92,7 @@
     <Compile Include="..\SolutionAssemblyInfo.cs">
       <Link>Properties\SolutionAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Helpers\AvalonTextBehavior.cs" />
     <Compile Include="Helpers\BraceFoldingStrategy.cs" />
     <Compile Include="Helpers\ColorizeAvalonEdit.cs" />
     <Compile Include="Helpers\LineColorizer.cs" />

@@ -122,6 +122,7 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
             SaveAsCommand = new Command(OnSaveAsCommandExecute, OnSaveAsCommandCanExecute);
             SaveCommand = new Command(OnSaveCommandExecute, OnSaveCommandCanExecute);
             CloseCommand = new Command(OnCloseCommandExecute, OnCloseCommandCanExecute);
+            UpdateCommand = new Command(OnUpdateCommandExecute, OnUpdateCommandCanExecute);
             #endregion
 
             #region Browser related
@@ -138,6 +139,16 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
             //var messageMediator = ServiceLocator.Default.ResolveType<IMessageMediator>();
             //messageMediator.Register<string>(this, OnParse, "selectedItem");
             #endregion
+        }
+
+        private string _myTest;
+        /// <summary>
+        /// myTest
+        /// </summary>
+        public string myTest
+        {
+            get { return _myTest; }
+            set { _myTest = value; }
         }
 
         private void OnParse(string SelectedItem)
@@ -183,12 +194,13 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
 
                     if (File.Exists(this._filePath))
                     {
-                        this._document = new TextDocument();
+                        //this._document = new TextDocument();
+                        this.Document = new TextDocument();
                         this.HighlightDef = HighlightingManager.Instance.GetDefinition("C#");
                         //this._isDirty = false;
                         this.IsDirty = false;
                         this.IsReadOnly = false;
-                        this.ShowLineNumbers = false;
+                        this.ShowLineNumbers = true;
                         this.WordWrap = false;
 
                         // Check file attributes and set to read-only if file attributes indicate that
@@ -203,7 +215,8 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
                         {
                             using (StreamReader reader = FileReader.OpenStream(fs, Encoding.UTF8))
                             {
-                                this._document = new TextDocument(reader.ReadToEnd());
+                                //this._document = new TextDocument(reader.ReadToEnd());
+                                this.Document = new TextDocument(reader.ReadToEnd());
                             }
                         }
 
@@ -246,6 +259,10 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
                 {
                     this._document = value;
                     RaisePropertyChanged("Document");
+
+                    // Invalidate the ViewModel
+                    //ViewModelActivated();
+
                     IsDirty = true;
                 }
             }
@@ -601,6 +618,33 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
         }
 
         #endregion
+
+        #region Update Document Command
+        /// <summary>
+        /// Gets the Update command.
+        /// </summary>
+        public Command UpdateCommand { get; private set; }
+
+        /// <summary>
+        /// Method to check whether the Browse command can be executed.
+        /// </summary>
+        /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        private bool OnUpdateCommandCanExecute()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Method to invoke when the Browse command is executed.
+        /// </summary>
+        private void OnUpdateCommandExecute()
+        {
+            //bool saveAsFlag = true;
+            //_textEditorModule.Save(this, true);
+            UpdateContextSensitiveData();
+        }
+
+        #endregion
         #endregion
 
         #region Properties
@@ -813,17 +857,23 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
                 _propertiesViewModel.Url = Url;
 
                 MethodsCollection();
-                _propertiesViewModel.MethodSignatureCollection = methodsCollection;
+
+                if (_propertiesViewModel.MethodSignatureCollection !=null)
+                {
+                    _propertiesViewModel.MethodSignatureCollection.Clear();
+                }
+                
+                _propertiesViewModel.MethodSignatureCollection = MethodsCollection();
             }
         }
 
 
         #region Document map
-        List<MatchItem> methodsCollection;
+        //List<MatchItem> methodsCollection;
 
-        private void MethodsCollection()
+        private List<MatchItem> MethodsCollection()
         {
-            methodsCollection = new List<MatchItem>();
+            List<MatchItem> methodsCollection = new List<MatchItem>();
 
             Regex r = null;
             Match m;
@@ -873,6 +923,8 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
                     methodsCollection.Add(mi);
                 }
             }
+            return methodsCollection;
+
 
             //for (m = r.Match(this._document.Text); m.Success; m = m.NextMatch())
             //{
