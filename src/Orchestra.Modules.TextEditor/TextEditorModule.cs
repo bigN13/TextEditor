@@ -23,6 +23,8 @@ namespace Orchestra.Modules.TextEditorModule
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.IO;
+    using Catel.MVVM.Services;
+    using Orchestra.Modules.TextEditor.ViewModels;
 
     /// <summary>
     /// Browser module.
@@ -35,6 +37,9 @@ namespace Orchestra.Modules.TextEditorModule
         /// </summary>
         public const string Name = "TextEditor";
         private IOrchestraService orchestraService;
+
+        //private readonly IUIVisualizerService _uiVisualizerService;
+
 
         ObservableCollection<TextEditorViewModel> _files = new ObservableCollection<TextEditorViewModel>();
         ReadOnlyObservableCollection<TextEditorViewModel> _readonyFiles = null;
@@ -65,6 +70,11 @@ namespace Orchestra.Modules.TextEditorModule
         /// </summary>
         public Command OpenDocumentCommand { get; private set; }
 
+        /// <summary>
+        /// Show Document Map
+        /// </summary>
+        public Command ShowDocumentMapCommand { get; private set; }
+
         #endregion
 
         #region Constructors
@@ -74,6 +84,7 @@ namespace Orchestra.Modules.TextEditorModule
         public TextEditorModule()
             : base(Name)
         {
+            //_uiVisualizerService = uiVisualizerService;
         }
 
         /// <summary>
@@ -83,9 +94,12 @@ namespace Orchestra.Modules.TextEditorModule
         {
             NewDocumentCommand = new Command(NewDocumentCommandExecute, NewDocumentCommandCanExecute);
             OpenDocumentCommand = new Command(OpenDocumentCommandExecute, OpenDocumentCommandCanExecute);
+            ShowDocumentMapCommand = new Command(ShowDocumentMapCommandExecute, ShowDocumentMapCommandCanExecute);
             //CloseBrowser = new Command(OnCloseBrowserExecute);
             // var orchestraService = GetService<IOrchestraService>();
             // orchestraService.ShowDocument<BrowserViewModel>();
+
+            
         }
 
         /// <summary>
@@ -195,7 +209,9 @@ namespace Orchestra.Modules.TextEditorModule
 
             #endregion
 
-
+            ribbonService.RegisterContextualRibbonItem<TextEditorView>(
+             new RibbonButton(Name, "Document", "Map", new Command(() => ShowDocumentMapCommand.Execute(null))) { ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/App/Edit_WordWrap32.png" },
+             ModuleName);
 
             #region Browser Module
             var backButton = new RibbonButton(Name, Name, "Back", "GoBack") { ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/action_left.png" };
@@ -319,7 +335,6 @@ namespace Orchestra.Modules.TextEditorModule
                 return orcaViewModel;
             }
 
-
             var typeFactory = TypeFactory.Default;
             orcaViewModel = typeFactory.CreateInstanceWithParametersAndAutoCompletion<TextEditorViewModel>("Noname", this);
             orcaViewModel.FilePath = filepath;
@@ -327,6 +342,40 @@ namespace Orchestra.Modules.TextEditorModule
 
             return orcaViewModel;
         }
+        #endregion
+
+        #region Show Document Map Command
+        /// <summary>
+        /// Method to check whether the New command can be executed.
+        /// </summary>
+        /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        private bool ShowDocumentMapCommandCanExecute()
+        {
+            // TODO: Handle command logic here
+            return true;
+        }
+
+        /// <summary>
+        /// Method to invoke when the New command is executed.
+        /// </summary>
+        private void ShowDocumentMapCommandExecute()
+        {
+           
+            //var viewModelLocator = ServiceLocator.Default.ResolveType<IViewModelLocator>();
+            //var viewModelType = viewModelLocator.ResolveViewModel(typeof(MapView));
+
+            
+            var view = new MapWindow();
+            view.ShowDialog();
+
+            //var viewModel = new MapViewModel();
+            //var uiVisualizerService = ServiceLocator.Default.ResolveType<IUIVisualizerService>();
+            //uiVisualizerService.Show(viewModel);
+
+            //_uiVisualizerService.ShowDialog(viewModel);
+        }
+
+       
         #endregion
 
 

@@ -77,10 +77,16 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
         public List<MatchItem> MethodSignatureCollection { get; set; }
 
         /// <summary>
+        /// Gets or sets the Current FileName
+        /// </summary>
+        public string currentFileName { get; set; }
+
+        /// <summary>
         /// Gets or sets the MethodSignatureCollection
         /// </summary>
         public MatchItem SelectectedDocumentItem { get; set; }
 
+     
         #endregion
 
         #region DocumentMap Command
@@ -99,13 +105,14 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
         }
 
         /// <summary>
-        /// Method to send the Selected Item back to Text Editor .
+        /// Method to send the Selected Item  to Text Editor View
         /// </summary>
         private void OnDocMapSelectedCommandExecute()
         {
             if (SelectectedDocumentItem != null)
             {
-                _messageMediator.SendMessage(SelectectedDocumentItem, "selectedItem");
+                // Passing the currentFileName to differentiate the mediator message
+                _messageMediator.SendMessage(SelectectedDocumentItem, currentFileName);
             }           
         }
         #endregion

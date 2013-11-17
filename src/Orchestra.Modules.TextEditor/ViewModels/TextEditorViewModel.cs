@@ -93,9 +93,9 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
 
             #region TextEditor related
             TextOptions = new TextEditorOptions()
-               {
-                   ShowSpaces = true,
-               };
+            {
+                ShowSpaces = true,
+            };
             //this.TextOptions.ShowSpaces = true;
 
             //this.f = new TextEditorViewModel();
@@ -141,16 +141,6 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
             #endregion
         }
 
-        private string _myTest;
-        /// <summary>
-        /// myTest
-        /// </summary>
-        public string myTest
-        {
-            get { return _myTest; }
-            set { _myTest = value; }
-        }
-
         private void OnParse(string SelectedItem)
         {
             //MessageBox.Show(SelectedItem);
@@ -172,7 +162,7 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
         }
         #endregion
 
-        #region TextEditor View Settings
+        #region TextEditor View SettinFgs
 
         #region FilePath
         private string _filePath = null;
@@ -862,8 +852,9 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
                 {
                     _propertiesViewModel.MethodSignatureCollection.Clear();
                 }
-                
+
                 _propertiesViewModel.MethodSignatureCollection = MethodsCollection();
+                _propertiesViewModel.currentFileName = FileName;
             }
         }
 

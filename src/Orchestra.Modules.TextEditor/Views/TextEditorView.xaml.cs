@@ -22,7 +22,7 @@ namespace Orchestra.Modules.TextEditorModule.Views
 	using Orchestra.Modules.TextEditorModule.Helpers;
 	using ICSharpCode.AvalonEdit.Rendering;
 	using System.Windows;
-using System.Windows.Media;
+    using System.Windows.Media;
 	using ICSharpCode.AvalonEdit;
 	using ICSharpCode.AvalonEdit.Highlighting;
 	using System.Collections.Generic;
@@ -47,11 +47,8 @@ using System.Windows.Media;
 		int prevHighlightedLine = 0;
 
 		List<LineColorizer> ColorizerCollection;
-
-		
-		CompletionWindow completionWindow;
-
-		
+	
+		CompletionWindow completionWindow;		
 		#endregion
 
 		#region Constructors
@@ -91,8 +88,6 @@ using System.Windows.Media;
 
             HighlightingComboBox();
 
-            
-
 			//if (foldingManager == null)
 			//{
 			//    foldingManager = FoldingManager.Install(textEditor.TextArea);
@@ -125,11 +120,14 @@ using System.Windows.Media;
 					OnBrowse(vm.Url);
 				}
 
-				var messageMediator = ServiceLocator.Default.ResolveType<IMessageMediator>();
-				messageMediator.Register<string>(this, OnBrowse, vm.UrlChangedMessageTag);
+                // Register to the message sent from Document Map
+                var messageMediator = ServiceLocator.Default.ResolveType<IMessageMediator>();
+                messageMediator.Register<MatchItem>(this, OnParse, vm.FileName);
 
 				//var messageMediator = ServiceLocator.Default.ResolveType<IMessageMediator>();
-				messageMediator.Register<MatchItem>(this, OnParse, "selectedItem");
+				//messageMediator.Register<string>(this, OnBrowse, vm.UrlChangedMessageTag);
+
+
 			}
 		}
 
@@ -167,10 +165,10 @@ using System.Windows.Media;
 				ColorizerCollection.Add(currentHighligtedLine);
 
 				textEditor.TextArea.TextView.Redraw(); // invalidate specific Line
+
+                //Keep track of previous line
 				prevHighlightedLine = m.currentLine;
 			}
-
-			//webBrowser.Navigate(url, null, null, string.Format("User-Agent: {0}", UserAgent));
 		}
 		#endregion
 

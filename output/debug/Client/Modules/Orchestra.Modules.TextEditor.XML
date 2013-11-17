@@ -278,6 +278,17 @@
             <param name="filepath"></param>
             <returns></returns>
         </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.TextEditorModule.ShowDocumentMapCommandCanExecute">
+            <summary>
+            Method to check whether the New command can be executed.
+            </summary>
+            <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.TextEditorModule.ShowDocumentMapCommandExecute">
+            <summary>
+            Method to invoke when the New command is executed.
+            </summary>
+        </member>
         <member name="P:Orchestra.Modules.TextEditorModule.TextEditorModule.Files">
             <summary>
             Collection of all files
@@ -293,9 +304,24 @@
             Command - Open Existent Document
             </summary>
         </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.TextEditorModule.ShowDocumentMapCommand">
+            <summary>
+            Show Document Map
+            </summary>
+        </member>
         <member name="P:Orchestra.Modules.TextEditorModule.TextEditorModule.ActiveDocument">
             <summary>
             Set Active Document
+            </summary>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditor.ViewModels.MapViewModel">
+            <summary>
+            DocMapSettingsViewModel
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditor.ViewModels.MapViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Modules.TextEditor.ViewModels.MapViewModel"/> class.
             </summary>
         </member>
         <member name="T:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel">
@@ -494,11 +520,6 @@
             Update the context sensitive data, related to this view.
             </summary>
         </member>
-        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.myTest">
-            <summary>
-            myTest
-            </summary>
-        </member>
         <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.FilePath">
             <summary>
             TextEditor Setup FilePath
@@ -680,7 +701,7 @@
         </member>
         <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.OnDocMapSelectedCommandExecute">
             <summary>
-            Method to send the Selected Item back to Text Editor .
+            Method to send the Selected Item  to Text Editor View
             </summary>
         </member>
         <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.Url">
@@ -696,6 +717,11 @@
             Gets or sets the MethodSignatureCollection
             </summary>
         </member>
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.currentFileName">
+            <summary>
+            Gets or sets the Current FileName
+            </summary>
+        </member>
         <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.SelectectedDocumentItem">
             <summary>
             Gets or sets the MethodSignatureCollection
@@ -704,6 +730,24 @@
         <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.PropertiesViewModel.DocMapSelectedCommand">
             <summary>
             Gets the ShowLineNumbers command.
+            </summary>
+        </member>
+        <member name="T:Orchestra.Modules.TextEditorModule.Views.MapWindow">
+            <summary>
+            Interaction logic for PropertiesView.xaml.
+            </summary>
+            <summary>
+            MapWindow
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Views.MapWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Orchestra.Modules.TextEditorModule.Views.MapWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.Views.MapWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
             </summary>
         </member>
         <member name="T:Orchestra.Modules.TextEditorModule.Views.TextEditorView">
@@ -745,36 +789,6 @@
         <member name="M:Orchestra.Modules.TextEditorModule.Views.PropertiesView.InitializeComponent">
             <summary>
             InitializeComponent
-            </summary>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
             </summary>
         </member>
     </members>
