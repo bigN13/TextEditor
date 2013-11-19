@@ -817,7 +817,8 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
         /// </summary>
         private void OnCloseBrowserExecute()
         {
-            _orchestraService.CloseDocument(this);
+            this.OnClosing();
+           
             Url = null;
         }       
         #endregion
@@ -831,6 +832,27 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
 
             UpdateContextSensitiveData();
         }
+
+        /// <summary>
+        /// Close ViewModel
+        /// </summary>
+        protected override void OnClosing()
+        {
+            MessageBox.Show("OnClosing");
+
+            _orchestraService.CloseDocument(this);
+            //base.OnClosing();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        protected override void Close()
+        {
+            MessageBox.Show("Close");
+            base.OnClosing();
+        }
+      
 
         /// <summary>
         /// Update the context sensitive data, related to this view.
@@ -858,10 +880,7 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
             }
         }
 
-
         #region Document map
-        //List<MatchItem> methodsCollection;
-
         private List<MatchItem> MethodsCollection()
         {
             List<MatchItem> methodsCollection = new List<MatchItem>();
@@ -872,6 +891,8 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
             TheOptions |= RegexOptions.IgnoreCase;
             TheOptions |= RegexOptions.Multiline;
             TheOptions |= RegexOptions.IgnorePatternWhitespace;
+
+            #region Testing regex
             //string regextPattern = @"@Q(?:[^Q]+|QQ)*Q|Q(?:[^Q\\]+|\\.)*Q".Replace('Q', '\"');
 
             //Finds all strings
@@ -889,6 +910,8 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
             // The first backreference will contain the word the line actually contains. If it contains more than one of the words, 
             // then the last (rightmost) word will be captured into the first backreference. This is because the star is greedy.
             // Finally, .*$ causes the regex to actually match the line, after the lookaheads have determined it meets the requirements.
+            #endregion
+
             string regextPattern2 = @"^.*\b(private|public|sealed|protected|virtual|internal)\b.*$";
 
             try
@@ -915,20 +938,6 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
                 }
             }
             return methodsCollection;
-
-
-            //for (m = r.Match(this._document.Text); m.Success; m = m.NextMatch())
-            //{
-            //    if (m.Value.Length > 0)
-            //    {
-            //        //methodsCollection.Add(m.ToString());
-            //        methodsCollection.Add(m);
-            //    }
-            //}
-
-            //foreach (var item in MethodSignatureCollection)
-            //    methodsCollection.Add(item.ToString());
-
         }  
         #endregion
     }

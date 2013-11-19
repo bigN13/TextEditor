@@ -9,9 +9,6 @@
                         xmlns:ViewModels="clr-namespace:Orchestra.Modules.TextEditor.ViewModels" mc:Ignorable="d" 
                         d:DataContext="{d:DesignInstance ViewModels:MapViewModel, IsDesignTimeCreatable=True}"
                         >
-
-
-
     <!-- Content -->
     <Grid Margin="0">
         <!-- Row definitions -->
@@ -57,7 +54,7 @@
         <Label Content="Regular" HorizontalAlignment="Stretch" Margin="5,5,5,0" Grid.Row="2" VerticalAlignment="Top"/>
         <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" Margin="5,5,5,0" Grid.Row="2" VerticalAlignment="Top" Width="120"/>
         <Button Content="Save" Grid.Column="2" HorizontalAlignment="Stretch" Margin="5,5,5,0" Grid.Row="2" VerticalAlignment="Top" Width="75"/>
-        <TextBox HorizontalAlignment="Stretch"  Margin="5,5,5,10" Grid.Row="3" TextWrapping="Wrap" Text="^.*\b(private|public|sealed|protected|virtual|internal)\b.*$" VerticalAlignment="Stretch" />
+        <TextBox HorizontalAlignment="Stretch" Grid.ColumnSpan="3"  Margin="5" Grid.Row="3" TextWrapping="Wrap" Text="^.*\b(private|public|sealed|protected|virtual|internal)\b.*$" VerticalAlignment="Stretch" />
         <TabControl HorizontalAlignment="Stretch"  Margin="5" Grid.Row="4" Grid.ColumnSpan="3" VerticalAlignment="Stretch">
             <TabItem Header="Characters and Repetitions">
                 <Grid>

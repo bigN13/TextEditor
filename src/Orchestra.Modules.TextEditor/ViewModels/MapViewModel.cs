@@ -10,12 +10,12 @@ namespace Orchestra.Modules.TextEditor.ViewModels
     /// <summary>
     /// DocMapSettingsViewModel
     /// </summary>
-    public class MapViewModel : ViewModelBase
+    public class MapViewModel : Orchestra.ViewModels.ViewModelBase
     {
         #region Variables
         #endregion
 
-         #region Constructor & destructor
+        #region Constructor & destructor
         /// <summary>
         /// Initializes a new instance of the <see cref="MapViewModel"/> class.
         /// </summary>
@@ -214,6 +214,5 @@ namespace Orchestra.Modules.TextEditor.ViewModels
         //    }
         //}
         //#endregion
-    
     }
 }

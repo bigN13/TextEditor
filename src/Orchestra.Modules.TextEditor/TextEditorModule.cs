@@ -38,7 +38,7 @@ namespace Orchestra.Modules.TextEditorModule
         public const string Name = "TextEditor";
         private IOrchestraService orchestraService;
 
-        //private readonly IUIVisualizerService _uiVisualizerService;
+        private readonly IUIVisualizerService _uiVisualizerService;
 
 
         ObservableCollection<TextEditorViewModel> _files = new ObservableCollection<TextEditorViewModel>();
@@ -81,10 +81,14 @@ namespace Orchestra.Modules.TextEditorModule
         /// <summary>
         /// Initializes a new instance of the <see cref="TextEditorModule"/> class. 
         /// </summary>
-        public TextEditorModule()
+        public TextEditorModule(IUIVisualizerService uiVisualizerService)
             : base(Name)
         {
-            //_uiVisualizerService = uiVisualizerService;
+            Argument.IsNotNull(() => uiVisualizerService);
+
+
+
+            _uiVisualizerService = uiVisualizerService;
         }
 
         /// <summary>
@@ -264,9 +268,6 @@ namespace Orchestra.Modules.TextEditorModule
             orchestraViewModel.Url = "http://www.github.com/Orcomp/Orchestra";
             orchestraService.ShowDocument(orchestraViewModel, "orchestra");
 
-            //var catelViewModel = typeFactory.CreateInstanceWithParametersAndAutoCompletion<TextEditorViewModel>("Catel");
-            //catelViewModel.Url = "http://www.catelproject.com";
-            //orchestraService.ShowDocument(catelViewModel, "catel");
         }
         
         #endregion
@@ -364,9 +365,19 @@ namespace Orchestra.Modules.TextEditorModule
             //var viewModelLocator = ServiceLocator.Default.ResolveType<IViewModelLocator>();
             //var viewModelType = viewModelLocator.ResolveViewModel(typeof(MapView));
 
+            var vm = new MapViewModel();
+
+            //_uiVisualizerService.ShowDialog(vm);
+
+
+            var typeFactory = this.GetTypeFactory();
+
+            vm = typeFactory.CreateInstance<MapViewModel>();
+
+            _uiVisualizerService.ShowDialog(vm);
             
-            var view = new MapWindow();
-            view.ShowDialog();
+            //var view = new MapWindow();
+            //view.ShowDialog();
 
             //var viewModel = new MapViewModel();
             //var uiVisualizerService = ServiceLocator.Default.ResolveType<IUIVisualizerService>();

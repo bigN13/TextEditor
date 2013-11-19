@@ -231,7 +231,7 @@
             The module name.
             </summary>
         </member>
-        <member name="M:Orchestra.Modules.TextEditorModule.TextEditorModule.#ctor">
+        <member name="M:Orchestra.Modules.TextEditorModule.TextEditorModule.#ctor(Catel.MVVM.Services.IUIVisualizerService)">
             <summary>
             Initializes a new instance of the <see cref="T:Orchestra.Modules.TextEditorModule.TextEditorModule"/> class. 
             </summary>
@@ -513,6 +513,16 @@
         <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.ViewModelActivated">
             <summary>
             Method is called when the active view changes within the orchestra application
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnClosing">
+            <summary>
+            Close ViewModel
+            </summary>
+        </member>
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.Close">
+            <summary>
+            
             </summary>
         </member>
         <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.UpdateContextSensitiveData">
