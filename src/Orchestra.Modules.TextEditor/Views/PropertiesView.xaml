@@ -4,33 +4,36 @@
                         xmlns:catel="http://catel.codeplex.com"
                         xmlns:orchestra="http://orchestra.codeplex.com"
                         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                        
                         >
-    
-    <!-- Content -->
-    <catel:StackGrid>
-        <catel:StackGrid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-        </catel:StackGrid.RowDefinitions>
-        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0">
-            <TextBlock Text="Url" />
-            <TextBlock Text="{Binding Url}" />
-            <TextBlock Text="Document Map" />
-            <ListView Name="PresetList"  
-                      ItemsSource="{Binding MethodSignatureCollection}" 
-                      SelectedItem="{Binding SelectectedDocumentItem}"
-                      DisplayMemberPath="currentMatch"
-                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="SelectionChanged">
-                        <catel:EventToCommand 
-                    Command="{Binding Path=DataContext.DocMapSelectedCommand, 
-                                        RelativeSource={RelativeSource FindAncestor, AncestorType=catel:UserControl, AncestorLevel=1}}" 
-                        CommandParameter="{Binding Path=SelectedItem, ElementName=PresetList}" 
-                        DisableAssociatedObjectOnCannotExecute="False" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </ListView>
 
-        </StackPanel>
-    </catel:StackGrid>
+    <!-- Content -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Url" Grid.Row="0" />
+        <TextBlock Text="{Binding Url}" Grid.Row="1" Height="23" />
+        <TextBlock Text="Document Map" Margin="0" Grid.Row="2"  Height="23"  />
+        <ListView x:Name="PresetList"  
+            	ItemsSource="{Binding MethodSignatureCollection}" 
+            	SelectedItem="{Binding SelectectedDocumentItem}"
+            	DisplayMemberPath="currentMatch"
+            	VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0" Grid.Row="3">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <catel:EventToCommand 
+            				Command="{Binding DataContext.DocMapSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type catel:UserControl}}}" 
+            				CommandParameter="{Binding SelectedItem, ElementName=PresetList}" 
+            				DisableAssociatedObjectOnCannotExecute="False" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListView>
+
+
+    </Grid>
 </orchestra:DocumentView>

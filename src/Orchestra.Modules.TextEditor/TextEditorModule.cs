@@ -120,7 +120,7 @@ namespace Orchestra.Modules.TextEditorModule
 
             // Module specific
             var typeFactory = TypeFactory.Default;
-            ribbonService.RegisterRibbonItem(new RibbonButton(HomeRibbonTabName, ModuleName, "Open", new Command(() => NewDocumentCommand.Execute(null))) { ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/action_browse.png" });
+            ribbonService.RegisterRibbonItem(new RibbonButton(HomeRibbonTabName, ModuleName, "Open", new Command(() => NewDocumentCommand.Execute(null))) { ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/App/Edit_WordWrap32.png" });
 
             // View specific
             #region File Buttons
@@ -225,11 +225,11 @@ namespace Orchestra.Modules.TextEditorModule
             ribbonService.RegisterContextualRibbonItem<TextEditorView>(new RibbonButton(Name, Name, "Browse", "Browse") { ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/action_browse.png" }, ModuleName);
 
 
-            ribbonService.RegisterContextualRibbonItem<TextEditorView>(new RibbonComboBox(Name, "Recent Sites")
+            ribbonService.RegisterContextualRibbonItem<TextEditorView>(new RibbonComboBox(Name, "Languages")
             {
                 ItemsSource = "SyntaxHighlighting",
-                SelectedItem = "SelectedSite",
-                Layout = new RibbonItemLayout { Width = 150 },
+                SelectedItem = "SelectedLanguage",
+                Layout = new RibbonItemLayout { Width = 100 },
                 Style = Application.Current.Resources["SelectedSitesComboBoxStyle"] as Style
             }, ModuleName);
 
@@ -238,10 +238,12 @@ namespace Orchestra.Modules.TextEditorModule
 
             ribbonService.RegisterContextualRibbonItem<TextEditorView>(new RibbonContentControl(Name, "Dynamic content") { ContentTemplate = template, Layout = new RibbonItemLayout { Width = 120 } }, ModuleName);
 
-            ribbonService.RegisterRibbonItem(new RibbonButton(ViewRibbonTabName, ModuleName, "Browser properties", new Command(() =>
+            ribbonService.RegisterRibbonItem(new RibbonButton(ViewRibbonTabName, ModuleName, "TextEditor properties", new Command(() =>
             {
                 orchestraService.ShowDocumentIfHidden<PropertiesViewModel>();
-            })) { ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/action_browse.png" });
+            })) { ItemImage = "/Orchestra.Modules.TextEditor;component/Resources/Images/App/Edit_WordWrap32.png" });
+
+         
 
             ribbonService.RegisterContextualRibbonItem<TextEditorView>(new RibbonSplitButton(Name, Name, "Close", "CloseCommand")
             {
@@ -365,19 +367,19 @@ namespace Orchestra.Modules.TextEditorModule
             //var viewModelLocator = ServiceLocator.Default.ResolveType<IViewModelLocator>();
             //var viewModelType = viewModelLocator.ResolveViewModel(typeof(MapView));
 
-            var vm = new MapViewModel();
+            //var vm = new MapViewModel();
+
+            ////_uiVisualizerService.ShowDialog(vm);
+
+
+            //var typeFactory = this.GetTypeFactory();
+
+            //vm = typeFactory.CreateInstance<MapViewModel>();
 
             //_uiVisualizerService.ShowDialog(vm);
 
-
-            var typeFactory = this.GetTypeFactory();
-
-            vm = typeFactory.CreateInstance<MapViewModel>();
-
-            _uiVisualizerService.ShowDialog(vm);
-            
-            //var view = new MapWindow();
-            //view.ShowDialog();
+            var view = new MapWindow();
+            view.ShowDialog();
 
             //var viewModel = new MapViewModel();
             //var uiVisualizerService = ServiceLocator.Default.ResolveType<IUIVisualizerService>();

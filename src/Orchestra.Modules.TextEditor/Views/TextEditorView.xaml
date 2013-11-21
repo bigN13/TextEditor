@@ -53,7 +53,8 @@
 			IsModified="{Binding Path=IsDirty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 			FontFamily="Consolas"
 			ShowLineNumbers="{Binding Path=ShowLineNumbers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"			
-			WordWrap="{Binding Path=WordWrap, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                   
+			WordWrap="{Binding Path=WordWrap, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                               
 				>  
 			<i:Interaction.Triggers>
 				<i:EventTrigger EventName="TextChanged">

@@ -460,12 +460,12 @@
             </summary>
             <param name="e">The <see cref="T:Catel.Data.AdvancedPropertyChangedEventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="F:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.SelectedSiteProperty">
+        <member name="F:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.SelectedLanugageProperty">
             <summary>
             SelectedSite property data.
             </summary>
         </member>
-        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnSelectedSiteChanged(System.Object,Catel.Data.AdvancedPropertyChangedEventArgs)">
+        <member name="M:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.OnSelectedLanguageChanged(System.Object,Catel.Data.AdvancedPropertyChangedEventArgs)">
             <summary>
             Called when the SelectedSite value changed.
             </summary>
@@ -635,7 +635,7 @@
             The recent sites.
             </value>
         </member>
-        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.SelectedSite">
+        <member name="P:Orchestra.Modules.TextEditorModule.ViewModels.TextEditorViewModel.SelectedLanguage">
             <summary>
             Gets or sets the SelectedSite value.
             </summary>

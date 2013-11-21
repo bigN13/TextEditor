@@ -22,7 +22,7 @@ namespace Orchestra.Modules.TextEditorModule.Views
 	using Orchestra.Modules.TextEditorModule.Helpers;
 	using ICSharpCode.AvalonEdit.Rendering;
 	using System.Windows;
-    using System.Windows.Media;
+	using System.Windows.Media;
 	using ICSharpCode.AvalonEdit;
 	using ICSharpCode.AvalonEdit.Highlighting;
 	using System.Collections.Generic;
@@ -85,22 +85,26 @@ namespace Orchestra.Modules.TextEditorModule.Views
 			ColorizerCollection = new List<LineColorizer>();
 
 			#region Folding Init
+            //HighlightingComboBox_SelectionChanged();
+            //intialFolding();
+            //foldingStrategy = new XmlFoldingStrategy();
+            foldingStrategy = new BraceFoldingStrategy();
 
-            HighlightingComboBox();
+            //FoldingManager foldingManager = FoldingManager.Install(textEditor.TextArea);
+            //BraceFoldingStrategy foldingStrategy = new BraceFoldingStrategy();
+            //foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
 
-			//if (foldingManager == null)
-			//{
-			//    foldingManager = FoldingManager.Install(textEditor.TextArea);
-			//}
+            //textEditor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("C#");
+            //textEditor.SyntaxHighlighting = customHighlighting;
+            // initial highlighting now set by XAML
 
-			textEditor.TextArea.TextEntering += textEditor_TextArea_TextEntering;
-			textEditor.TextArea.TextEntered += textEditor_TextArea_TextEntered;
+            textEditor.TextArea.TextEntering += textEditor_TextArea_TextEntering;
+            textEditor.TextArea.TextEntered += textEditor_TextArea_TextEntered;
 
-			DispatcherTimer foldingUpdateTimer = new DispatcherTimer();
-			foldingUpdateTimer.Interval = TimeSpan.FromSeconds(2);
-			foldingUpdateTimer.Tick += foldingUpdateTimer_Tick;
-			foldingUpdateTimer.Start();
-		   
+            DispatcherTimer foldingUpdateTimer = new DispatcherTimer();
+            foldingUpdateTimer.Interval = TimeSpan.FromSeconds(2);
+            foldingUpdateTimer.Tick += foldingUpdateTimer_Tick;
+            foldingUpdateTimer.Start();
 			#endregion
 
 		}
@@ -120,9 +124,11 @@ namespace Orchestra.Modules.TextEditorModule.Views
 					OnBrowse(vm.Url);
 				}
 
-                // Register to the message sent from Document Map
-                var messageMediator = ServiceLocator.Default.ResolveType<IMessageMediator>();
-                messageMediator.Register<MatchItem>(this, OnParse, vm.FileName);
+				// Register to the message sent from Document Map
+				var messageMediator = ServiceLocator.Default.ResolveType<IMessageMediator>();
+				messageMediator.Register<MatchItem>(this, OnParse, vm.FileName);
+                
+               
 
 				//var messageMediator = ServiceLocator.Default.ResolveType<IMessageMediator>();
 				//messageMediator.Register<string>(this, OnBrowse, vm.UrlChangedMessageTag);
@@ -140,6 +146,7 @@ namespace Orchestra.Modules.TextEditorModule.Views
  
 		private void OnParse(MatchItem SelectedItem)
 		{
+
 			if (SelectedItem != null)
 			{
 				MatchItem m = SelectedItem;
@@ -166,7 +173,7 @@ namespace Orchestra.Modules.TextEditorModule.Views
 
 				textEditor.TextArea.TextView.Redraw(); // invalidate specific Line
 
-                //Keep track of previous line
+				//Keep track of previous line
 				prevHighlightedLine = m.currentLine;
 			}
 		}
@@ -199,7 +206,74 @@ namespace Orchestra.Modules.TextEditorModule.Views
 		FoldingManager foldingManager;
 		AbstractFoldingStrategy foldingStrategy;
 
-		void HighlightingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		//void HighlightingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		void HighlightingComboBox_SelectionChanged()
+		{
+			if (textEditor.SyntaxHighlighting == null)
+			{
+				foldingStrategy = null;
+			}
+			else
+			{
+				switch (textEditor.SyntaxHighlighting.Name)
+				{
+					case "XML":
+						foldingStrategy = new XmlFoldingStrategy();
+						textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.DefaultIndentationStrategy();
+						break;
+					case "C#":
+					case "C++":
+					case "PHP":
+					case "Java":
+						textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.CSharp.CSharpIndentationStrategy(textEditor.Options);
+						foldingStrategy = new BraceFoldingStrategy();
+						break;
+					default:
+					    textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.CSharp.CSharpIndentationStrategy(textEditor.Options);
+						foldingStrategy = new BraceFoldingStrategy();
+						break;
+				}
+			}
+			if (foldingStrategy != null)
+			{
+				if (foldingManager == null)
+					foldingManager = FoldingManager.Install(textEditor.TextArea);
+				foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
+			}
+			else
+			{
+				if (foldingManager != null)
+				{
+					FoldingManager.Uninstall(foldingManager);
+					foldingManager = null;
+				}
+			}
+		}
+
+        void intialFolding()
+        {
+            //foldingStrategy = new XmlFoldingStrategy();
+
+            if (foldingStrategy != null)
+            {
+                if (foldingManager == null)
+                {
+                    foldingManager = new FoldingManager(textEditor.Document);
+
+                    foldingManager = FoldingManager.Install(textEditor.TextArea);
+                }
+                foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
+            }
+            else
+            {
+                if (foldingManager != null)
+                {
+                    FoldingManager.Uninstall(foldingManager);
+                    foldingManager = null;
+                }
+            }
+        }
+		void HighlightingComboBox()
 		{
 			if (textEditor.SyntaxHighlighting == null)
 			{
@@ -228,8 +302,12 @@ namespace Orchestra.Modules.TextEditorModule.Views
 			}
 			if (foldingStrategy != null)
 			{
-				if (foldingManager == null)
-					foldingManager = FoldingManager.Install(textEditor.TextArea);
+                if (foldingManager == null)
+                {
+                    foldingManager = new FoldingManager(textEditor.Document);
+
+                    foldingManager = FoldingManager.Install(textEditor.TextArea);
+                }
 				foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
 			}
 			else
@@ -242,53 +320,12 @@ namespace Orchestra.Modules.TextEditorModule.Views
 			}
 		}
 
-        void HighlightingComboBox()
-        {
-            if (textEditor.SyntaxHighlighting == null)
-            {
-                foldingStrategy = null;
-            }
-            else
-            {
-                switch (textEditor.SyntaxHighlighting.Name)
-                {
-                    case "XML":
-                        foldingStrategy = new XmlFoldingStrategy();
-                        textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.DefaultIndentationStrategy();
-                        break;
-                    case "C#":
-                    case "C++":
-                    case "PHP":
-                    case "Java":
-                        textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.CSharp.CSharpIndentationStrategy(textEditor.Options);
-                        foldingStrategy = new BraceFoldingStrategy();
-                        break;
-                    default:
-                        textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.DefaultIndentationStrategy();
-                        foldingStrategy = null;
-                        break;
-                }
-            }
-            if (foldingStrategy != null)
-            {
-                if (foldingManager == null)
-                    foldingManager = FoldingManager.Install(textEditor.TextArea);
-                foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
-            }
-            else
-            {
-                if (foldingManager != null)
-                {
-                    FoldingManager.Uninstall(foldingManager);
-                    foldingManager = null;
-                }
-            }
-        }
-
 		void foldingUpdateTimer_Tick(object sender, EventArgs e)
 		{
 			if (foldingStrategy != null && textEditor.Document != null)
 			{
+                intialFolding();
+
 				foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
 			}
 		}

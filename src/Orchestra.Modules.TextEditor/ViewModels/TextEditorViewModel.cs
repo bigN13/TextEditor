@@ -677,40 +677,41 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
         /// <value>
         /// The recent sites.
         /// </value>
-        public string[] SyntaxHighlighting { get { return new[] { "Orchestra", "Catel" }; } }
+        //public string[] SyntaxHighlighting { get { return new[] { "Orchestra", "Catel" }; } }
+        public string[] SyntaxHighlighting { get { return new[] { "XML", "C#", "C++", "PHP", "Java"}; } }
 
         #region SelectedSite property
 
         /// <summary>
         /// Gets or sets the SelectedSite value.
         /// </summary>
-        public string SelectedSite
+        public string SelectedLanguage
         {
-            get { return GetValue<string>(SelectedSiteProperty); }
-            set { SetValue(SelectedSiteProperty, value); }
+            get { return GetValue<string>(SelectedLanugageProperty); }
+            set { SetValue(SelectedLanugageProperty, value); }
         }
 
         /// <summary>
         /// SelectedSite property data.
         /// </summary>
-        public static readonly PropertyData SelectedSiteProperty = RegisterProperty("SelectedSite", typeof(string), null, OnSelectedSiteChanged);        
+        public static readonly PropertyData SelectedLanugageProperty = RegisterProperty("SelectedSite", typeof(string), null, OnSelectedLanguageChanged);        
 
         /// <summary>
         /// Called when the SelectedSite value changed.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="AdvancedPropertyChangedEventArgs"/> instance containing the event data.</param>
-        private static void OnSelectedSiteChanged(object sender, AdvancedPropertyChangedEventArgs e)
+        private static void OnSelectedLanguageChanged(object sender, AdvancedPropertyChangedEventArgs e)
         {
             var _this = ((TextEditorViewModel)sender);
 
-            switch (_this.SelectedSite)
+            switch (_this.SelectedLanguage)
             {
-                case "Orchestra":
+                case "XML":
                     _this.Url = "http://www.github.com/Orcomp/Orchestra";
                     break;
 
-                case "Catel":
+                case "C#":
                     _this.Url = "http://www.catelproject.com";
                     break;
 
@@ -912,7 +913,7 @@ namespace Orchestra.Modules.TextEditorModule.ViewModels
             // Finally, .*$ causes the regex to actually match the line, after the lookaheads have determined it meets the requirements.
             #endregion
 
-            string regextPattern2 = @"^.*\b(private|public|sealed|protected|virtual|internal)\b.*$";
+            string regextPattern2 = @"^.*\b(namespace|private|public|sealed|protected|virtual|internal)\b.*$";
 
             try
             {
